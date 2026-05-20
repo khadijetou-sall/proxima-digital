@@ -1,23 +1,23 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import { LogIn, Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react'
+import { UserPlus, Mail, Lock, User, Eye, EyeOff, ArrowLeft } from 'lucide-react'
 
-export default function Login() {
-  const [form, setForm] = useState({ email: '', password: '' })
+export default function Register() {
+  const [form, setForm] = useState({ name: '', email: '', password: '' })
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
-  const { login, demoLogin } = useAuth()
+  const { register } = useAuth()
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
     try {
-      await login(form.email, form.password)
-      navigate('/dashboard')
+      await register(form.name, form.email, form.password)
+      navigate('/')
     } catch (err) {
-      setError(err.response?.data?.message || 'Email ou mot de passe incorrect')
+      setError(err.response?.data?.message || 'Erreur lors de l\'inscription')
     }
   }
 
@@ -41,14 +41,29 @@ export default function Login() {
       <main className="mx-auto max-w-md px-6 py-16 sm:py-24">
         <div className="text-center mb-10">
           <div className="mx-auto w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20">
-            <LogIn className="w-7 h-7 text-white" />
+            <UserPlus className="w-7 h-7 text-white" />
           </div>
-          <h1 className="text-3xl font-semibold text-gray-900 tracking-tight">Connexion</h1>
-          <p className="mt-2 text-gray-500">Accédez à votre espace client</p>
+          <h1 className="text-3xl font-semibold text-gray-900 tracking-tight">Créer un compte</h1>
+          <p className="mt-2 text-gray-500">Rejoignez Proxima Digital</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
           <form onSubmit={handleSubmit} className="space-y-5">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">Nom complet</label>
+              <div className="relative">
+                <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <input
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
+                  placeholder="Votre nom"
+                />
+              </div>
+            </div>
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
               <div className="relative">
@@ -71,10 +86,11 @@ export default function Login() {
                 <input
                   type={showPassword ? 'text' : 'password'}
                   required
+                  minLength={6}
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                   className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
-                  placeholder="Votre mot de passe"
+                  placeholder="6 caractères minimum"
                 />
                 <button
                   type="button"
@@ -94,32 +110,15 @@ export default function Login() {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-2.5 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all active:scale-[0.98]"
             >
-              Se connecter
-            </button>
-
-            <div className="relative my-4">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-white px-3 text-gray-400">ou</span>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              onClick={demoLogin}
-              className="w-full bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium text-sm hover:bg-gray-200 transition-all active:scale-[0.98]"
-            >
-              Mode démo (sans serveur)
+              Créer mon compte
             </button>
           </form>
 
           <div className="mt-6 pt-6 border-t border-gray-100">
             <p className="text-center text-sm text-gray-500">
-              Pas encore de compte ?{' '}
-              <Link to="/register" className="text-blue-600 hover:text-blue-700 font-medium">
-                S'inscrire
+              Déjà un compte ?{' '}
+              <Link to="/login" className="text-blue-600 hover:text-blue-700 font-medium">
+                Se connecter
               </Link>
             </p>
           </div>

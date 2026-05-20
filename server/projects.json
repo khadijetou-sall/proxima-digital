@@ -1,0 +1,145 @@
+[
+  {
+    "id": "proj-1",
+    "clientId": "demo-user-1",
+    "name": "Branding Proxima",
+    "type": "pack",
+    "pack": "Premium",
+    "customDescription": "",
+    "description": "Création complète de l'identité visuelle : logo, charte graphique, cartes de visite et templates.",
+    "status": "in-progress",
+    "progress": 65,
+    "startDate": "01/05/2026",
+    "deadline": "15/06/2026",
+    "steps": [
+      {
+        "label": "Brief & Analyse",
+        "done": true
+      },
+      {
+        "label": "Design",
+        "done": true
+      },
+      {
+        "label": "Développement",
+        "done": false
+      },
+      {
+        "label": "Finalisation",
+        "done": false
+      }
+    ],
+    "deliverables": [
+      {
+        "name": "Logo - Format PNG",
+        "type": "image",
+        "date": "15/05/2026",
+        "size": "2.4 Mo"
+      },
+      {
+        "name": "Logo - Format SVG",
+        "type": "image",
+        "date": "15/05/2026",
+        "size": "1.1 Mo"
+      },
+      {
+        "name": "Charte graphique PDF",
+        "type": "file",
+        "date": "15/05/2026",
+        "size": "4.7 Mo"
+      }
+    ],
+    "createdAt": "2026-05-18T19:06:28.429Z"
+  },
+  {
+    "id": "proj-2",
+    "clientId": "demo-user-1",
+    "name": "Site vitrine e-commerce",
+    "type": "custom",
+    "pack": null,
+    "customDescription": "Site e-commerce sur mesure",
+    "description": "Développement d'une boutique en ligne avec catalogue produits, panier et paiement intégré.",
+    "status": "completed",
+    "progress": 100,
+    "startDate": "10/03/2026",
+    "deadline": "20/04/2026",
+    "steps": [
+      {
+        "label": "Brief & Analyse",
+        "done": true
+      },
+      {
+        "label": "Design",
+        "done": true
+      },
+      {
+        "label": "Développement",
+        "done": true
+      },
+      {
+        "label": "Finalisation",
+        "done": true
+      }
+    ],
+    "deliverables": [
+      {
+        "name": "Maquette site - Accueil",
+        "type": "image",
+        "date": "10/04/2026",
+        "size": "3.2 Mo"
+      },
+      {
+        "name": "Maquette site - Produits",
+        "type": "image",
+        "date": "10/04/2026",
+        "size": "2.8 Mo"
+      },
+      {
+        "name": "Lien de démonstration",
+        "type": "link",
+        "date": "20/04/2026",
+        "size": "—"
+      },
+      {
+        "name": "Fichiers source (ZIP)",
+        "type": "file",
+        "date": "20/04/2026",
+        "size": "12.5 Mo"
+      }
+    ],
+    "createdAt": "2026-05-18T19:06:28.429Z"
+  },
+  {
+    "id": "proj-3",
+    "clientId": "demo-user-1",
+    "name": "Stratégie réseaux sociaux",
+    "type": "pack",
+    "pack": "Starter",
+    "customDescription": "",
+    "description": "Mise en place et gestion des réseaux sociaux avec calendrier éditorial et création de contenu.",
+    "status": "pending",
+    "progress": 10,
+    "startDate": "25/05/2026",
+    "deadline": "25/06/2026",
+    "steps": [
+      {
+        "label": "Brief & Analyse",
+        "done": true
+      },
+      {
+        "label": "Design",
+        "done": false
+      },
+      {
+        "label": "Développement",
+        "done": false
+      },
+      {
+        "label": "Finalisation",
+        "done": false
+      }
+    ],
+    "deliverables": [],
+    "createdAt": "2026-05-18T19:06:28.429Z"
+  }
+]

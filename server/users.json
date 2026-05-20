@@ -1,0 +1,9 @@
+[
+  {
+    "id": "demo-user-1",
+    "name": "Client Demo",
+    "email": "demo@proxima.digital",
+    "password": "$2b$12$u.dwJeF0nVdI7HCKBtErBetCc2KyhIzyKmfL.l9NZjEyHREZpAski",
+    "createdAt": "2026-05-18T19:06:28.383Z"
+  }
+]
