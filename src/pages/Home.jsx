@@ -355,7 +355,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
 
-        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full pt-8 sm:pt-0 pb-16 sm:pb-16">
+        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full pt-8 sm:pt-20 pb-16 sm:pb-16">
           <div className="max-w-3xl">
 
             <div className="hero-title">
