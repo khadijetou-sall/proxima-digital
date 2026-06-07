@@ -35,23 +35,17 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// Serve frontend in production (single-server deployment)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../dist')));
-  app.get('*', (req, res) => {
-    if (!req.path.startsWith('/api') && !req.path.startsWith('/uploads')) {
-      res.sendFile(path.join(__dirname, '../dist', 'index.html'));
-    }
+const PORT = process.env.PORT || 5000;
+
+if (require.main === module) {
+  connectDB().then(() => {
+    app.listen(PORT, () => {
+      console.log(`Serveur démarré sur le port ${PORT}`);
+    });
+  }).catch((err) => {
+    console.error('Erreur de connexion à MongoDB:', err.message);
+    process.exit(1);
   });
 }
 
-const PORT = process.env.PORT || 5000;
-
-connectDB().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Serveur démarré sur le port ${PORT}`);
-  });
-}).catch((err) => {
-  console.error('Erreur de connexion à MongoDB:', err.message);
-  process.exit(1);
-});
+module.exports = app;
