@@ -55,7 +55,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-[#f5f5f7]">
       <Header />
 
-      <div className="bg-gray-900 pt-20 pb-12 sm:pb-16" />
+      <div className="bg-gray-900 pt-28 sm:pt-28 pb-12 sm:pb-16" />
 
       <section className="bg-white pb-16 sm:pb-20">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">

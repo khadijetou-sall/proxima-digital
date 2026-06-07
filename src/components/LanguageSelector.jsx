@@ -22,14 +22,14 @@ export default function LanguageSelector({ light } = {}) {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm transition flex items-center gap-1 sm:gap-2 ${
+        className={`px-2.5 sm:px-3 py-2 sm:py-2 rounded-full text-xs sm:text-sm transition flex items-center gap-1 sm:gap-2 ${
           light
-            ? 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
-            : 'bg-white/15 text-white hover:bg-white/25 border border-white/20'
+            ? 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-300'
+            : 'bg-white/15 text-white hover:bg-white/25 border border-white/30'
         }`}
         aria-label="Select language"
       >
-        <span className="text-sm sm:text-lg leading-none">{current.flag}</span>
+        <span className="text-base sm:text-lg leading-none">{current.flag}</span>
         <span className="hidden sm:inline">{current.label}</span>
       </button>
 

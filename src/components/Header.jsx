@@ -33,44 +33,42 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-2 sm:py-3">
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img src="/logo.png" alt="Proxima Digital" className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/30 transition-shadow" />
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-1.5 sm:py-3">
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <img src="/logo.png" alt="Proxima Digital" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/30 transition-shadow" />
             <span className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${scrolled ? 'text-gray-900' : 'text-white'}`}>
               {t('brand')}
             </span>
           </Link>
 
-          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
-            <div className="scale-90 sm:scale-100 origin-right">
-              <LanguageSelector />
-            </div>
+          <div className="flex items-center gap-0.5 sm:gap-2 shrink-0">
+            <LanguageSelector />
 
             {user ? (
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-0.5">
                 {user.isAdmin || user.role ? (
                   <Link
                     to="/admin"
-                    className={`inline-flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs lg:text-sm font-medium transition-all ${
+                    className={`inline-flex items-center gap-1 px-2 sm:px-3 py-2 sm:py-2 rounded-full text-xs sm:text-xs lg:text-sm font-medium transition-all ${
                       scrolled
                         ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-md'
                         : 'bg-white/10 text-white hover:bg-white/20'
                     }`}
                   >
-                    <User className="w-3 h-3" />
+                    <User className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline">{t('auth.admin')}</span>
                   </Link>
                 ) : (
                   <Link
                     to="/dashboard"
-                    className={`inline-flex items-center gap-1 px-2 sm:px-3 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs lg:text-sm font-medium transition-all ${
+                    className={`inline-flex items-center gap-1 px-2 sm:px-3 py-2 sm:py-2 rounded-full text-xs sm:text-xs lg:text-sm font-medium transition-all ${
                       scrolled
                         ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-md'
                         : 'bg-white/10 text-white hover:bg-white/20'
                     }`}
                   >
-                    <User className="w-3 h-3" />
+                    <User className="w-3.5 h-3.5" />
                     <span className="hidden sm:inline max-w-[80px] truncate">{user.name}</span>
                   </Link>
                 )}
@@ -78,13 +76,13 @@ export default function Header() {
                   onClick={logout}
                   className={`p-1.5 rounded-full transition ${scrolled ? 'text-gray-400 hover:text-gray-600 hover:bg-gray-100' : 'text-white/70 hover:text-white hover:bg-white/10'}`}
                 >
-                  <LogOut className="w-3.5 h-3.5" />
+                  <LogOut className="w-4 h-4" />
                 </button>
               </div>
             ) : (
               <Link
                 to="/login"
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-xs lg:text-sm font-medium transition-all whitespace-nowrap ${
+                className={`px-3 sm:px-4 py-2 sm:py-2 rounded-full text-xs sm:text-xs lg:text-sm font-medium transition-all whitespace-nowrap ${
                   scrolled
                     ? 'bg-gray-900 text-white hover:bg-gray-800'
                     : 'bg-white text-gray-900 hover:bg-gray-100'
@@ -96,7 +94,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="overflow-x-auto -mx-4 px-4 pb-2 sm:pb-3 hide-scrollbar">
+        <div className="overflow-x-auto -mx-3 sm:-mx-6 px-3 sm:px-6 pb-2 sm:pb-3 hide-scrollbar">
           <nav className="flex items-center gap-1 sm:gap-1.5 w-max mx-auto">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to
@@ -104,7 +102,7 @@ export default function Header() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
+                  className={`px-3 sm:px-4 py-2 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
                     isActive
                       ? scrolled
                         ? 'bg-gray-100 text-gray-900'

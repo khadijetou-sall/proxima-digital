@@ -327,7 +327,7 @@ export default function Home() {
       <Header />
 
       {/* HERO */}
-      <section ref={heroRef} className="relative min-h-[70vh] sm:min-h-screen flex items-end sm:items-center bg-black overflow-hidden pt-24 sm:pt-0">
+      <section ref={heroRef} className="relative min-h-[100dvh] sm:min-h-screen flex items-start sm:items-center bg-black overflow-hidden pt-28 sm:pt-0">
         {heroSlides.map((slide, idx) => (
           <div
             key={slide.src}
@@ -336,18 +336,18 @@ export default function Home() {
             <img
               src={slide.src}
               alt={slide.alt}
-              className="absolute inset-0 w-full h-full object-cover sm:object-cover object-top sm:object-center"
+              className="absolute inset-0 w-full h-full object-contain sm:object-cover object-center sm:object-center"
               style={{
                 animation: idx === slideIndex ? 'kenBurns 3s ease-in-out forwards' : 'none',
               }}
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-black/30 z-20" />
+        <div className="absolute inset-0 bg-black/50 sm:bg-black/30 z-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
 
-        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full pb-12 sm:pb-0">
+        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full pt-8 sm:pt-0 pb-16 sm:pb-16">
           <div className="max-w-3xl">
 
             <div className="hero-title">
@@ -376,7 +376,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-40 bg-gradient-to-t from-[#f5f5f7] to-transparent z-30" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-40 bg-gradient-to-t from-[#f5f5f7] to-transparent z-30" />
       </section>
 
       {/* EXPERTISE */}

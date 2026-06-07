@@ -46,7 +46,7 @@ export default function PageHero({ label, title, description, primaryCta, second
               {label}
             </p>
           )}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-[1.1]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-[1.1]">
             {renderTitle()}
           </h1>
           <p className="mt-6 text-lg text-gray-400 max-w-xl leading-relaxed">
