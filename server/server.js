@@ -15,7 +15,9 @@ const portfolioRoutes = require('./routes/portfolioRoutes');
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin: process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim())
+    : ['http://localhost:5173', 'http://127.0.0.1:5173'],
   credentials: true,
 }));
 app.use(express.json());

@@ -8,7 +8,7 @@ export default function AdminLogin() {
   const [form, setForm] = useState({ email: '', password: '' })
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
-  const { adminLogin, demoAdminLogin } = useAuth()
+  const { adminLogin } = useAuth()
   const navigate = useNavigate()
   const { t } = useTranslation()
 
@@ -59,7 +59,7 @@ export default function AdminLogin() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-700 bg-gray-800/50 text-white text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 transition"
-                  placeholder="digitalproxima317@gmail.com"
+                  placeholder="admin@proxima.digital"
                 />
               </div>
             </div>
@@ -105,14 +105,6 @@ export default function AdminLogin() {
                 <span className="bg-gray-900 px-3 text-gray-500">{t('or') || 'ou'}</span>
               </div>
             </div>
-
-            <button
-              type="button"
-              onClick={() => { demoAdminLogin(); navigate('/admin') }}
-              className="w-full bg-gray-800 text-gray-300 py-2.5 rounded-xl font-medium text-sm hover:bg-gray-700 transition-all active:scale-[0.98]"
-            >
-              {t('auth.demoMode')}
-            </button>
           </form>
         </div>
       </main>

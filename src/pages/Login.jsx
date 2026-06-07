@@ -8,7 +8,7 @@ export default function Login() {
   const [form, setForm] = useState({ email: '', password: '' })
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
-  const { login, demoLogin } = useAuth()
+  const { login } = useAuth()
   const navigate = useNavigate()
   const { t } = useTranslation()
 
@@ -105,14 +105,6 @@ export default function Login() {
                 <span className="bg-white px-3 text-gray-400">{t('or') || 'ou'}</span>
               </div>
             </div>
-
-            <button
-              type="button"
-              onClick={demoLogin}
-              className="w-full bg-gray-100 text-gray-700 py-2.5 rounded-xl font-medium text-sm hover:bg-gray-200 transition-all active:scale-[0.98]"
-            >
-              {t('auth.demoMode')}
-            </button>
           </form>
 
           <div className="mt-6 pt-6 border-t border-gray-100">

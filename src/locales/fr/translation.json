@@ -19,7 +19,6 @@
     "email": "Email",
     "password": "Mot de passe",
     "passwordPlaceholder": "Votre mot de passe",
-    "demoMode": "Mode démo (sans serveur)",
     "notAccount": "Pas encore de compte ?",
     "register": "S'inscrire",
     "accessAdmin": "Accéder à l'administration",

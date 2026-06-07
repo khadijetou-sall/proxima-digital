@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { portfolioAPI } from '../api/portfolioAPI'
-import portfolioProjectsFallback from '../data/portfolioProjects'
 import {
   Plus, Trash2, Edit, Image, Search, X, ArrowLeft, Upload, Paperclip,
   Globe, ExternalLink, Calendar, User, FileText, FolderOpen,
@@ -46,7 +45,7 @@ export default function AdminPortfolio() {
       const res = await portfolioAPI.getAll()
       setProjects(res.data.projects || [])
     } catch {
-      setProjects(portfolioProjectsFallback)
+      setProjects([])
     } finally {
       setLoading(false)
     }
@@ -112,13 +111,7 @@ export default function AdminPortfolio() {
       setShowModal(false)
       fetchProjects()
     } catch (err) {
-      if (!editingProject && !editingProject?._id) {
-        const fallback = portfolioProjectsFallback
-        const newId = String(fallback.length + 1)
-        fallback.push({ id: newId, ...data, createdAt: new Date().toISOString().slice(0, 10) })
-        setProjects([...fallback])
-        setShowModal(false)
-      }
+      console.error(err)
     }
   }
 
