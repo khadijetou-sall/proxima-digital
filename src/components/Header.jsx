@@ -34,7 +34,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-1.5 sm:py-3">
+        <div className="flex items-center justify-between py-3 sm:py-3">
           <Link to="/" className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <img src="/logo.png" alt="Proxima Digital" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/30 transition-shadow" />
             <span className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${scrolled ? 'text-gray-900' : 'text-white'}`}>
@@ -94,7 +94,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="overflow-x-auto sm:overflow-visible -mx-3 sm:mx-0 px-3 sm:px-0 pb-2 sm:pb-3 hide-scrollbar">
+        <div className="overflow-x-auto sm:overflow-visible -mx-3 sm:mx-0 px-3 sm:px-0 pb-4 sm:pb-3 hide-scrollbar">
           <nav className="flex items-center gap-1 sm:gap-1.5 w-max mx-auto">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to

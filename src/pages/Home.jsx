@@ -348,11 +348,12 @@ export default function Home() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 sm:bg-black/30 z-20" />
-        <div className="absolute inset-0 bg-gradient-to-r sm:from-black/60 sm:via-black/30 sm:to-transparent z-20" />
-        <div className="absolute inset-0 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
+        <div className="absolute inset-0 bg-black/20 sm:bg-black/30 z-20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 sm:from-black/60 sm:via-black/30 sm:to-transparent z-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
 
-        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full pt-0 sm:pt-20 pb-12 sm:pb-16">
+        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full h-full sm:h-auto flex flex-col sm:block sm:pt-20 pb-12 sm:pb-16">
+          <div className="flex-1 sm:hidden" />
           <div className="max-w-3xl">
 
             <div className="hero-title">
@@ -363,7 +364,9 @@ export default function Home() {
             <p className="hero-sub mt-4 sm:mt-6 text-base sm:text-xl text-gray-100 max-w-xl leading-relaxed" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.6)' }}>
               {t('home.hero.sub')}
             </p>
-            <div className="hero-cta mt-6 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          </div>
+          <div className="flex-1 sm:hidden" />
+          <div className="hero-cta sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Link
                 to="/services"
                 className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all active:scale-[0.98] shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20"
@@ -380,7 +383,6 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </div>
         <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-40 bg-gradient-to-t from-[#f5f5f7] to-transparent z-20" />
       </section>
 
