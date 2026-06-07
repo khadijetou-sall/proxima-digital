@@ -28,11 +28,11 @@ async function seed() {
   // Create demo admin
   const admin = await Admin.create({
     name: 'Admin Proxima',
-    email: 'admin@proxima.digital',
-    password: 'admin123',
+    email: 'digitalproxima317@gmail.com',
+    password: 'khadija34@/com',
     role: 'superadmin',
   });
-  console.log('Admin créé : admin@proxima.digital / admin123');
+  console.log('Admin créé : digitalproxima317@gmail.com / khadija34@/com');
 
   // Create demo projects
   const projects = [
@@ -110,7 +110,7 @@ async function seed() {
 
   console.log('\n✅ Base de données initialisée !');
   console.log('   Client : demo@proxima.digital / 123456');
-  console.log('   Admin  : admin@proxima.digital / admin123');
+  console.log('   Admin  : digitalproxima317@gmail.com / khadija34@/com');
 
   await mongoose.disconnect();
 }

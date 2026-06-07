@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -8,118 +9,98 @@ import PageHero from '../components/PageHero'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const serviceCategories = [
-  {
-    title: 'Graphic Design',
-    icon: Palette,
-    gradient: 'from-blue-600 to-cyan-500',
-    accent: 'bg-blue-50',
-    accentIcon: 'text-blue-600',
-    border: 'border-blue-200',
-    bar: 'bg-blue-600',
-    description: 'Donnez vie à votre marque avec une identité visuelle forte et cohérente. Du logo à la charte graphique, nous créons des univers uniques qui captent l\'attention et renforcent votre crédibilité.',
-    services: [
-      { icon: Pen, label: 'Création de logo' },
-      { icon: Palette, label: 'Branding' },
-      { icon: Layout, label: 'Charte graphique' },
-      { icon: Image, label: 'Visuels réseaux sociaux' },
-      { icon: Camera, label: 'Bannières publicitaires' },
-      { icon: Eye, label: 'Identité visuelle' },
-      { icon: Layout, label: 'Templates Instagram' },
-      { icon: PenTool, label: 'Direction artistique' },
-    ],
-  },
-  {
-    title: 'Community Management',
-    icon: TrendingUp,
-    gradient: 'from-blue-500 to-cyan-400',
-    accent: 'bg-cyan-50',
-    accentIcon: 'text-cyan-600',
-    border: 'border-cyan-200',
-    bar: 'bg-cyan-500',
-    description: 'Développez une communauté engagée autour de votre marque grâce à une stratégie de contenu réfléchie et une présence authentique sur les réseaux sociaux.',
-    services: [
-      { icon: MessageCircle, label: 'Gestion des réseaux sociaux' },
-      { icon: Pen, label: 'Aide à la création de contenu' },
-      { icon: Calendar, label: 'Planification des publications' },
-      { icon: TrendingUp, label: 'Stratégie de marketing digital' },
-      { icon: BarChart3, label: 'Analyse d\'engagement' },
-      { icon: Globe, label: 'Optimisation de la présence en ligne' },
-      { icon: Users, label: 'Développement de communauté' },
-    ],
-  },
-  {
-    title: 'Développement Web & Applications',
-    icon: Code,
-    gradient: 'from-blue-600 to-indigo-500',
-    accent: 'bg-indigo-50',
-    accentIcon: 'text-indigo-600',
-    border: 'border-indigo-200',
-    bar: 'bg-indigo-600',
-    description: 'Des solutions digitales performantes — sites web et applications modernes, rapides et optimisés pour une expérience utilisateur exceptionnelle.',
-    services: [
-      { icon: Code, label: 'Création de sites web' },
-      { icon: Monitor, label: 'Landing pages' },
-      { icon: Globe, label: 'Sites vitrines' },
-      { icon: Smartphone, label: 'Design responsive' },
-      { icon: Search, label: 'Optimisation SEO' },
-      { icon: Settings, label: 'Maintenance web' },
-      { icon: Code, label: 'Intégration front-end' },
-      { icon: Eye, label: 'Expérience utilisateur (UI/UX)' },
-    ],
-  },
-]
-
-const packs = [
-  {
-    name: 'Starter',
-    desc: 'Pour les petites marques ou projets débutants.',
-    icon: Rocket,
-    items: [
-      'Logo simple',
-      'Palette de couleurs',
-      'Visuels réseaux sociaux basiques',
-      'Aide à la création de contenu',
-      'Mini landing page',
-    ],
-    cta: 'Choisir cette offre',
-    popular: false,
-  },
-  {
-    name: 'Business',
-    desc: 'Pour les marques en développement.',
-    icon: Briefcase,
-    items: [
-      'Logo & branding',
-      'Charte graphique',
-      'Visuels réseaux sociaux',
-      'Aide à la création de contenu',
-      'Stratégie de marketing digital',
-      'Gestion basique des réseaux sociaux',
-      'Site vitrine professionnel',
-    ],
-    cta: 'Commander ce pack',
-    popular: true,
-  },
-  {
-    name: 'Premium',
-    desc: 'Pour les entreprises qui veulent une présence digitale complète.',
-    icon: Crown,
-    items: [
-      'Identité visuelle complète',
-      'Templates professionnels',
-      'Accompagnement communication',
-      'Community management avancé',
-      'Site web responsive',
-      'Développement d\'applications ou fonctionnalités web',
-      'SEO optimisé',
-    ],
-    cta: 'Réserver cette offre',
-    popular: false,
-  },
-]
+// service data will be created inside the component using translations
 
 export default function Services() {
+  const { t } = useTranslation()
+  const serviceCategories = [
+    {
+      title: t('services.categories.graphic.title'),
+      icon: Palette,
+      gradient: 'from-blue-600 to-cyan-500',
+      accent: 'bg-blue-50',
+      accentIcon: 'text-blue-600',
+      border: 'border-blue-200',
+      bar: 'bg-blue-600',
+      description: t('services.categories.graphic.description'),
+      services: [
+        { icon: Pen, label: t('services.categories.graphic.services.0') },
+        { icon: Palette, label: t('services.categories.graphic.services.1') },
+        { icon: Layout, label: t('services.categories.graphic.services.2') },
+        { icon: Image, label: t('services.categories.graphic.services.3') },
+        { icon: Camera, label: t('services.categories.graphic.services.4') },
+        { icon: Eye, label: t('services.categories.graphic.services.5') },
+        { icon: Layout, label: t('services.categories.graphic.services.6') },
+        { icon: PenTool, label: t('services.categories.graphic.services.7') },
+      ],
+    },
+    {
+      title: t('services.categories.community.title'),
+      icon: TrendingUp,
+      gradient: 'from-blue-500 to-cyan-400',
+      accent: 'bg-cyan-50',
+      accentIcon: 'text-cyan-600',
+      border: 'border-cyan-200',
+      bar: 'bg-cyan-500',
+      description: t('services.categories.community.description'),
+      services: [
+        { icon: MessageCircle, label: t('services.categories.community.services.0') },
+        { icon: Pen, label: t('services.categories.community.services.1') },
+        { icon: Calendar, label: t('services.categories.community.services.2') },
+        { icon: TrendingUp, label: t('services.categories.community.services.3') },
+        { icon: BarChart3, label: t('services.categories.community.services.4') },
+        { icon: Globe, label: t('services.categories.community.services.5') },
+        { icon: Users, label: t('services.categories.community.services.6') },
+      ],
+    },
+    {
+      title: t('services.categories.dev.title'),
+      icon: Code,
+      gradient: 'from-blue-600 to-indigo-500',
+      accent: 'bg-indigo-50',
+      accentIcon: 'text-indigo-600',
+      border: 'border-indigo-200',
+      bar: 'bg-indigo-600',
+      description: t('services.categories.dev.description'),
+      services: [
+        { icon: Code, label: t('services.categories.dev.services.0') },
+        { icon: Monitor, label: t('services.categories.dev.services.1') },
+        { icon: Globe, label: t('services.categories.dev.services.2') },
+        { icon: Smartphone, label: t('services.categories.dev.services.3') },
+        { icon: Search, label: t('services.categories.dev.services.4') },
+        { icon: Settings, label: t('services.categories.dev.services.5') },
+        { icon: Code, label: t('services.categories.dev.services.6') },
+        { icon: Eye, label: t('services.categories.dev.services.7') },
+      ],
+    },
+  ]
+
+  const packs = [
+    {
+      name: t('services.packs.starter.name'),
+      desc: t('services.packs.starter.desc'),
+      icon: Rocket,
+      items: t('services.packs.starter.items', { returnObjects: true }),
+      cta: t('services.packs.starter.cta'),
+      popular: false,
+    },
+    {
+      name: t('services.packs.business.name'),
+      desc: t('services.packs.business.desc'),
+      icon: Briefcase,
+      items: t('services.packs.business.items', { returnObjects: true }),
+      cta: t('services.packs.business.cta'),
+      popular: true,
+    },
+    {
+      name: t('services.packs.premium.name'),
+      desc: t('services.packs.premium.desc'),
+      icon: Crown,
+      items: t('services.packs.premium.items', { returnObjects: true }),
+      cta: t('services.packs.premium.cta'),
+      popular: false,
+    },
+  ]
   const categoriesRef = useRef(null)
   const packsRef = useRef(null)
 
@@ -178,10 +159,10 @@ export default function Services() {
       <Header />
 
       <PageHero
-        label="Services"
-        title="Des solutions digitales <span>sur mesure</span>"
-        description="Nous vous accompagnons dans chaque aspect de votre présence digitale."
-        primaryCta={{ text: 'Demander un devis', href: 'https://wa.me/222615040793', external: true }}
+        label={t('nav.services')}
+        title={t('services.hero.title')}
+        description={t('services.hero.description')}
+        primaryCta={{ text: t('services.hero.cta'), href: 'https://wa.me/222615040793', external: true }}
       />
 
       <section ref={categoriesRef} className="py-16 sm:py-24 lg:py-32">
@@ -205,7 +186,7 @@ export default function Services() {
                             to="/contact"
                             className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition group"
                           >
-                            Demander un devis <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                            {t('services.cta.contact')} <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                           </Link>
                         </div>
                       </div>
@@ -237,9 +218,9 @@ export default function Services() {
       <section ref={packsRef} className="py-16 sm:py-24 lg:py-32 bg-white border-y border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-3 sm:mb-4">Nos Packs</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight">Des offres adaptées à chaque projet</h2>
-            <p className="mt-2 sm:mt-4 text-sm sm:text-base text-gray-500">Des solutions complètes pour tous les budgets et tous les besoins.</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-3 sm:mb-4">{t('services.packs.title')}</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight">{t('services.packs.leadTitle')}</h2>
+            <p className="mt-2 sm:mt-4 text-sm sm:text-base text-gray-500">{t('services.packs.lead')}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 items-stretch">
             {packs.map((pack) => {
@@ -251,7 +232,7 @@ export default function Services() {
                 >
                   {pack.popular && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-3 sm:px-4 py-1 rounded-full text-xs font-semibold whitespace-nowrap z-10">
-                      Populaire
+                      {t('services.packs.popular')}
                     </div>
                   )}
                   <div className="h-1.5 rounded-t-2xl bg-gradient-to-r from-blue-600 to-cyan-500" />
@@ -289,10 +270,10 @@ export default function Services() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="bg-gradient-to-br from-blue-600 to-cyan-500 rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center shadow-2xl">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-white tracking-tight">
-              Discutons de votre projet
+              {t('services.cta.projectTitle')}
             </h2>
             <p className="mt-3 sm:mt-4 text-blue-100 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
-              Réservez une consultation gratuite pour définir ensemble la stratégie digitale idéale.
+              {t('services.cta.projectLead')}
             </p>
             <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <a
@@ -301,13 +282,13 @@ export default function Services() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-white text-blue-600 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all active:scale-[0.98]"
               >
-                Consultation gratuite <ArrowRight className="w-4 h-4" />
+                {t('services.cta.freeConsult')} <ArrowRight className="w-4 h-4" />
               </a>
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-all"
               >
-                Formulaire de contact
+                {t('services.cta.contactForm')}
               </Link>
             </div>
           </div>
@@ -320,37 +301,38 @@ export default function Services() {
             <div className="col-span-2 sm:col-span-2 lg:col-span-1">
               <div className="flex items-center gap-2.5 mb-4 sm:mb-6">
                 <img src="/logo.png" alt="Proxima Digital" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-cover shadow-lg" />
-                <span className="text-sm sm:text-base font-semibold text-white">Proxima Digital</span>
+                <span className="text-sm sm:text-base font-semibold text-white">{t('brand')}</span>
               </div>
-              <p className="text-xs sm:text-sm leading-relaxed">Agence digitale spécialisée en identité visuelle, développement web et community management.</p>
+              <p className="text-xs sm:text-sm leading-relaxed">{t('footer.description')}</p>
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Services</h3>
+              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">{t('footer.servicesTitle')}</h3>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-                <li><Link to="/services" className="hover:text-white transition">Graphic Design</Link></li>
-                <li><Link to="/services" className="hover:text-white transition">Community management</Link></li>
-                <li><Link to="/services" className="hover:text-white transition">Développement Web & Applications</Link></li>
+                <li><Link to="/services" className="hover:text-white transition">{t('home.services.identity.title')}</Link></li>
+                <li><Link to="/services" className="hover:text-white transition">{t('home.services.community.title')}</Link></li>
+                <li><Link to="/services" className="hover:text-white transition">{t('home.services.dev.title')}</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Liens</h3>
+              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">{t('footer.agencyTitle')}</h3>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-                <li><Link to="/" className="hover:text-white transition">Accueil</Link></li>
-                <li><Link to="/about" className="hover:text-white transition">À propos</Link></li>
-                <li><Link to="/contact" className="hover:text-white transition">Contact</Link></li>
+                <li><Link to="/" className="hover:text-white transition">{t('nav.home')}</Link></li>
+                <li><Link to="/about" className="hover:text-white transition">{t('nav.about')}</Link></li>
+                <li><Link to="/contact" className="hover:text-white transition">{t('nav.contact')}</Link></li>
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-2 lg:col-span-1">
-              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">Contact</h3>
+              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">{t('footer.contactTitle')}</h3>
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-                <li><a href="mailto:digitalproxima317@gmail.com" className="hover:text-white transition">Email</a></li>
+                <li><a href="mailto:digitalproxima317@gmail.com" className="hover:text-white transition">{t('nav.contact')}</a></li>
                 <li><a href="https://wa.me/222615040793" target="_blank" rel="noreferrer" className="hover:text-white transition">WhatsApp</a></li>
                 <li><a href="https://www.instagram.com/digitalproxima317" target="_blank" rel="noreferrer" className="hover:text-white transition">Instagram</a></li>
                 <li><a href="https://www.tiktok.com/@proxima..digital" target="_blank" rel="noreferrer" className="hover:text-white transition">TikTok</a></li>
+                <li><a href="https://www.linkedin.com/company/proxima-digital/" target="_blank" rel="noreferrer" className="hover:text-white transition">LinkedIn</a></li>
               </ul>
             </div>
           </div>
-          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800 text-xs sm:text-sm text-center">© 2026 Proxima Digital. Tous droits réservés.</div>
+          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800 text-xs sm:text-sm text-center">{t('footer.copyright')}</div>
         </div>
       </footer>
     </div>

@@ -10,6 +10,7 @@ const deliverableRoutes = require('./routes/deliverableRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const newsletterRoutes = require('./routes/newsletterRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const portfolioRoutes = require('./routes/portfolioRoutes');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use('/api/deliverables', deliverableRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/portfolio', portfolioRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });

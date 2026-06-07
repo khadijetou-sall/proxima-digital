@@ -37,17 +37,26 @@ export function AuthProvider({ children }) {
     localStorage.setItem('demoUser', JSON.stringify(demoUser));
     setUser(demoUser);
   }, []);
+  const demoAdminLogin = useCallback(() => {
+    const demoAdmin = { id: 'demo-admin', name: 'Admin Demo', email: 'digitalproxima317@gmail.com', isAdmin: true, role: 'superadmin' };
+    localStorage.setItem('token', 'demo-admin-token');
+    localStorage.setItem('demoAdmin', JSON.stringify(demoAdmin));
+    setUser(demoAdmin);
+  }, []);
   const logout = useCallback(() => {
     localStorage.removeItem('token');
     localStorage.removeItem('demoUser');
+    localStorage.removeItem('demoAdmin');
     setUser(null);
   }, []);
   useEffect(() => {
     const demoData = localStorage.getItem('demoUser');
-    if (demoData) { setUser(JSON.parse(demoData)); }
+    if (demoData) { setUser(JSON.parse(demoData)); return; }
+    const adminDemoData = localStorage.getItem('demoAdmin');
+    if (adminDemoData) { setUser(JSON.parse(adminDemoData)); }
   }, []);
   return (
-    <AuthContext.Provider value={{ user, loading, login, adminLogin, register, demoLogin, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, adminLogin, register, demoLogin, demoAdminLogin, logout }}>
       {children}
     </AuthContext.Provider>
   );

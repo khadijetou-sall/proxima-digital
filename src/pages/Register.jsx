@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '../context/AuthContext'
 import { UserPlus, Mail, Lock, User, Eye, EyeOff, ArrowLeft } from 'lucide-react'
 
 export default function Register() {
+  const { t } = useTranslation()
   const [form, setForm] = useState({ name: '', email: '', password: '' })
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
@@ -17,7 +19,7 @@ export default function Register() {
       await register(form.name, form.email, form.password)
       navigate('/')
     } catch (err) {
-      setError(err.response?.data?.message || 'Erreur lors de l\'inscription')
+      setError(err.response?.data?.message || t('register.error'))
     }
   }
 
@@ -27,13 +29,11 @@ export default function Register() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 lg:px-8">
           <Link to="/" className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition">
             <ArrowLeft className="w-4 h-4" />
-            <span className="text-sm font-medium">Retour</span>
+            <span className="text-sm font-medium">{t('auth.return')}</span>
           </Link>
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white text-xs font-bold">
-              PD
-            </div>
-            <span className="text-sm font-semibold text-gray-900">Proxima Digital</span>
+            <img src="/logo.png" alt="Proxima Digital" className="w-8 h-8 rounded-lg object-cover shadow-lg" />
+            <span className="text-sm font-semibold text-gray-900">{t('brand')}</span>
           </Link>
         </div>
       </header>
@@ -43,14 +43,14 @@ export default function Register() {
           <div className="mx-auto w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20">
             <UserPlus className="w-7 h-7 text-white" />
           </div>
-          <h1 className="text-3xl font-semibold text-gray-900 tracking-tight">Créer un compte</h1>
-          <p className="mt-2 text-gray-500">Rejoignez Proxima Digital</p>
+          <h1 className="text-3xl font-semibold text-gray-900 tracking-tight">{t('register.title')}</h1>
+          <p className="mt-2 text-gray-500">{t('register.subtitle')}</p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Nom complet</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('register.nameLabel')}</label>
               <div className="relative">
                 <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                 <input
@@ -59,13 +59,13 @@ export default function Register() {
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
-                  placeholder="Votre nom"
+                  placeholder={t('register.namePlaceholder')}
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Email</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('register.emailLabel')}</label>
               <div className="relative">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                 <input
@@ -74,13 +74,13 @@ export default function Register() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
-                  placeholder="vous@email.com"
+                  placeholder={t('register.emailPlaceholder')}
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">Mot de passe</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1.5">{t('register.passwordLabel')}</label>
               <div className="relative">
                 <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
                 <input
@@ -90,7 +90,7 @@ export default function Register() {
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                   className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-gray-900 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition"
-                  placeholder="6 caractères minimum"
+                  placeholder={t('register.passwordPlaceholder')}
                 />
                 <button
                   type="button"
@@ -110,15 +110,15 @@ export default function Register() {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-2.5 rounded-xl font-medium text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all active:scale-[0.98]"
             >
-              Créer mon compte
+              {t('register.submit')}
             </button>
           </form>
 
           <div className="mt-6 pt-6 border-t border-gray-100">
             <p className="text-center text-sm text-gray-500">
-              Déjà un compte ?{' '}
+              {t('register.hasAccount')}{' '}
               <Link to="/login" className="text-blue-600 hover:text-blue-700 font-medium">
-                Se connecter
+                {t('register.login')}
               </Link>
             </p>
           </div>

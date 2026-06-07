@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Send, CheckCircle, Mail } from 'lucide-react'
 import { newsletterAPI } from '../api/axios'
 
 export default function NewsletterSignup({ dark = false }) {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState('idle')
   const [message, setMessage] = useState('')
@@ -18,7 +20,7 @@ export default function NewsletterSignup({ dark = false }) {
       setEmail('')
     } catch (err) {
       setStatus('error')
-      setMessage(err.response?.data?.message || 'Une erreur est survenue.')
+      setMessage(err.response?.data?.message || t('newsletter.error'))
     }
   }
 
@@ -29,7 +31,7 @@ export default function NewsletterSignup({ dark = false }) {
           <CheckCircle className={`w-5 h-5 ${dark ? 'text-emerald-400' : 'text-emerald-600'}`} />
         </div>
         <div>
-          <p className={`text-sm font-medium ${dark ? 'text-white' : 'text-gray-900'}`}>Merci de votre inscription !</p>
+          <p className={`text-sm font-medium ${dark ? 'text-white' : 'text-gray-900'}`}>{t('newsletter.successTitle')}</p>
           <p className={`text-xs ${dark ? 'text-gray-400' : 'text-gray-500'}`}>{message}</p>
         </div>
       </div>
@@ -46,7 +48,7 @@ export default function NewsletterSignup({ dark = false }) {
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Votre adresse email"
+            placeholder={t('newsletter.placeholder')}
             className={`w-full pl-10 pr-4 py-2.5 rounded-xl text-sm focus:outline-none focus:ring-2 transition ${
               dark
                 ? 'bg-gray-800 border border-gray-700 text-white placeholder:text-gray-500 focus:ring-purple-500/20 focus:border-purple-500'
@@ -64,7 +66,7 @@ export default function NewsletterSignup({ dark = false }) {
           }`}
         >
           <Send className="w-3.5 h-3.5" />
-          {status === 'loading' ? '...' : 'S\'abonner'}
+          {status === 'loading' ? t('newsletter.loading') : t('newsletter.subscribe')}
         </button>
       </div>
       {status === 'error' && (

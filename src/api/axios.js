@@ -41,6 +41,7 @@ export const newsletterAPI = {
   unsubscribe: (email) => api.post('/newsletter/unsubscribe', { email }),
   getAll: () => api.get('/newsletter'),
   remove: (id) => api.delete(`/newsletter/${id}`),
+  sendCampaign: (data) => api.post('/newsletter/send', data),
 };
 
 export const adminAPI = {

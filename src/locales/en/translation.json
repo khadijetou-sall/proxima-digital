@@ -1,0 +1,459 @@
+{
+  "brand": "Proxima Digital",
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "auth": {
+    "login": "Login",
+    "loginSubtitle": "Access your client area",
+    "adminSubtitle": "Admin area reserved for administrators",
+    "logout": "Logout",
+    "admin": "Admin",
+    "dashboard": "Dashboard",
+    "return": "Back",
+    "returnSite": "Back to site",
+    "email": "Email",
+    "password": "Password",
+    "passwordPlaceholder": "Your password",
+    "demoMode": "Demo mode (no server)",
+    "notAccount": "Don't have an account?",
+    "register": "Register",
+    "accessAdmin": "Access admin",
+    "loginError": "Email or password incorrect"
+  },
+  "home": {
+    "hero": {
+      "line1": "Top brands never neglect their digital image, because it is an amana.",
+      "sub": "Visual identity, web development and community management — we build digital presences that leave an impression.",
+      "ctaServices": "Discover our services",
+      "ctaContact": "Free consultation"
+    },
+    "expertise": {
+      "title": "Our Expertise",
+      "lead": "Every project is unique. We support you with tailored solutions to bring your vision to life.",
+      "items": [
+        {
+          "title": "Professional Logos",
+          "tag": "Branding",
+          "desc": "Unique logos that tell your story and leave a lasting impression."
+        },
+        {
+          "title": "Style Guides",
+          "tag": "Visual Identity",
+          "desc": "Comprehensive guidelines for perfect visual consistency."
+        },
+        {
+          "title": "Social Media Design",
+          "tag": "Creative",
+          "desc": "Engaging visuals that capture attention and drive interaction."
+        },
+        {
+          "title": "Community Management",
+          "tag": "Strategy",
+          "desc": "An authentic presence and engaged community around your brand."
+        },
+        {
+          "title": "Website Creation",
+          "tag": "Development",
+          "desc": "Modern, responsive, optimized sites for an exceptional user experience."
+        },
+        {
+          "title": "Branding",
+          "tag": "Identity",
+          "desc": "A complete brand strategy to stand out and make your mark."
+        },
+        {
+          "title": "Visual Identity",
+          "tag": "Design",
+          "desc": "A strong, cohesive identity that reflects your values and vision."
+        },
+        {
+          "title": "Digital Marketing",
+          "tag": "Growth",
+          "desc": "Data-driven strategies to amplify your reach and conversions."
+        }
+      ]
+    },
+    "servicesTitle": "Services",
+    "servicesLead": "From visual identity to network management, we cover all aspects of your online presence.",
+    "services": {
+      "identity": {
+        "title": "Visual Identity",
+        "items": ["Logo & Branding", "Style guide", "Posters & visuals", "Digital branding"]
+      },
+      "community": {
+        "title": "Community Management",
+        "items": ["Content strategy", "Posts & stories", "Account management", "Engagement analysis"]
+      },
+      "dev": {
+        "title": "Web & App Development",
+        "items": ["Showcase sites", "E-commerce", "Web apps", "SEO & performance"]
+      }
+    },
+    "learnMore": "Learn more",
+    "consultation": "Free consultation",
+    "process": {
+      "title": "Our 4-step process",
+      "lead": "A structured approach to ensure results that meet your ambitions.",
+      "steps": {
+        "01": { "title": "Analysis", "desc": "Understanding your needs and goals" },
+        "02": { "title": "Strategy", "desc": "Proposing a tailored solution" },
+        "03": { "title": "Creation", "desc": "Design and development of your project" },
+        "04": { "title": "Launch", "desc": "Deployment and personalized follow-up" }
+      }
+    },
+    "stats": {"projects": "Projects completed", "clients": "Satisfied clients", "recommendation": "Recommendation", "support": "Customer support"}
+  },
+  "portfolio": {
+    "title": "Our work",
+    "search": {
+      "placeholder": "Search for a project, logo, website, application or business domain...",
+      "noResults": "No projects found",
+      "viewAll": "View all projects"
+    }
+  },
+  "or": "or",
+  "services": {
+    "hero": {
+      "title": "Digital solutions <span>tailored for you</span>",
+      "description": "We support you in every aspect of your digital presence.",
+      "cta": "Request a quote"
+    },
+    "categories": {
+      "graphic": {
+        "title": "Graphic Design",
+        "description": "Bring your brand to life with a strong, cohesive visual identity.",
+        "services": [
+          "Logo design",
+          "Branding",
+          "Style guide",
+          "Social visuals",
+          "Ad banners",
+          "Visual identity",
+          "Instagram templates",
+          "Art direction"
+        ]
+      },
+      "community": {
+        "title": "Community Management",
+        "description": "Grow an engaged community around your brand.",
+        "services": [
+          "Social media management",
+          "Content creation support",
+          "Post scheduling",
+          "Digital marketing strategy",
+          "Engagement analysis",
+          "Online presence optimization",
+          "Community growth"
+        ]
+      },
+      "dev": {
+        "title": "Web & App Development",
+        "description": "High-performing digital solutions — modern, fast and optimized sites and apps.",
+        "services": [
+          "Website development",
+          "Landing pages",
+          "Showcase sites",
+          "Responsive design",
+          "SEO optimization",
+          "Web maintenance",
+          "Front-end integration",
+          "User experience (UI/UX)"
+        ]
+      }
+    },
+    "packs": {
+      "title": "Our Packs",
+      "leadTitle": "Offers adapted to every project",
+      "lead": "Complete solutions for all budgets and needs.",
+      "popular": "Popular",
+      "starter": {
+        "name": "Starter",
+        "desc": "For small brands or early projects.",
+        "items": [
+          "Simple logo",
+          "Color palette",
+          "Basic social visuals",
+          "Content creation support",
+          "Mini landing page"
+        ],
+        "cta": "Choose this offer"
+      },
+      "business": {
+        "name": "Business",
+        "desc": "For growing brands.",
+        "items": [
+          "Logo & branding",
+          "Style guide",
+          "Social visuals",
+          "Content creation support",
+          "Digital marketing strategy",
+          "Basic social media management",
+          "Professional showcase site"
+        ],
+        "cta": "Order this pack"
+      },
+      "premium": {
+        "name": "Premium",
+        "desc": "For companies wanting a complete digital presence.",
+        "items": [
+          "Full visual identity",
+          "Professional templates",
+          "Communication support",
+          "Advanced community management",
+          "Responsive website",
+          "App or advanced web features",
+          "SEO optimized"
+        ],
+        "cta": "Reserve this offer"
+      }
+    },
+    "cta": {
+      "contact": "Request a quote",
+      "projectTitle": "Let's discuss your project",
+      "projectLead": "Book a free consultation to define the ideal digital strategy together.",
+      "freeConsult": "Free consultation",
+      "contactForm": "Contact form"
+    }
+  },
+  "about": {
+    "hero": {
+      "label": "About",
+      "title": "A digital agency with <span>a vision</span>",
+      "description": "We help brands stand out in the digital world through creative, strategic and tailored solutions.",
+      "ctaPrimary": "Contact us",
+      "ctaSecondary": "Our services"
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "Proxima Digital's vision is to change the perception of digital by helping every generation understand, master and use it in a healthy, useful and responsible way to build a better future."
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "To support businesses and creators in their digital transformation by offering modern, creative and effective solutions to strengthen their online presence."
+    },
+    "values": {
+      "label": "Values",
+      "heading": "What guides us",
+      "modernity": { "title": "Modernity", "text": "Modern, clean creations adapted to current trends." },
+      "trust": { "title": "Amana (Responsibility / Trust)", "text": "A sincere commitment to each client, based on transparency and respect." },
+      "innovation": { "title": "Innovation", "text": "Original ideas and tailored solutions to help you stand out." }
+    },
+    "quote": {
+      "text": "“Top brands never neglect their digital image, because it is an amana.”",
+      "author": "Proxima Digital",
+      "role": "Digital agency"
+    }
+  },
+  "contact": {
+    "hero": {
+      "label": "Contact",
+      "title": "Let's talk about <span>your project</span>",
+      "description": "A question, a project? We are here to listen and offer you the best solution."
+    },
+    "form": {
+      "title": "Send us a message",
+      "nameLabel": "Name *",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email *",
+      "emailPlaceholder": "you@email.com",
+      "subjectLabel": "Subject *",
+      "subjectPlaceholder": "Choose a subject",
+      "subjectOptions": {
+        "site": "Website creation",
+        "logo": "Logo design",
+        "branding": "Visual identity / Branding",
+        "community": "Community Management",
+        "consultation": "Free consultation",
+        "other": "Other project"
+      },
+      "messageLabel": "Message *",
+      "messagePlaceholder": "Describe your project...",
+      "send": "Send message",
+      "sending": "Sending...",
+      "errorPrefix": "Error while sending.",
+      "successTitle": "Message sent!",
+      "successText": "We will get back to you as soon as possible.",
+      "successNewMessage": "Send another message"
+    },
+    "info": {
+      "emailTitle": "Professional email",
+      "emailDesc": "Reply within 24 business hours",
+      "socialTitle": "Social media",
+      "socialDesc": "Follow our news",
+      "consultationTitle": "Free consultation",
+      "consultationDesc": "Enjoy a no-obligation consultation.",
+      "consultationCta": "Book now"
+    }
+  },
+  "register": {
+    "title": "Create an account",
+    "subtitle": "Join Proxima Digital",
+    "nameLabel": "Full name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@email.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "6 characters minimum",
+    "submit": "Create my account",
+    "hasAccount": "Already have an account?",
+    "login": "Log in",
+    "error": "Registration error"
+  },
+  "dashboard": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "projects": "My projects",
+      "deliverables": "Deliverables"
+    },
+    "greeting": "Welcome back, {{name}}",
+    "greetingSub": "Here is a summary of your projects.",
+    "stats": {
+      "totalProjects": "Total projects",
+      "inProgress": "In progress",
+      "completed": "Completed",
+      "pending": "Pending"
+    },
+    "recentProjects": "Recent projects",
+    "viewAll": "View all",
+    "customProject": "Custom",
+    "inProgressBanner": "project(s) in progress",
+    "inProgressSub": "Check the progress of your projects",
+    "inProgressView": "View",
+    "emptyTitle": "No projects yet.",
+    "emptySub": "Your projects will appear here once created by your agency.",
+    "projectsTitle": "My projects",
+    "projectsSub": "Track the progress of each of your projects.",
+    "projectsEmpty": "No projects yet.",
+    "pack": "Pack",
+    "progress": "Progress",
+    "deadline": "Delivery on",
+    "viewDetails": "View details",
+    "detailBack": "Back to projects",
+    "detailDescription": "Description",
+    "detailDeliverables": "Deliverables for this project",
+    "statusPending": "Pending",
+    "statusInProgress": "In progress",
+    "statusCompleted": "Completed",
+    "stepBrief": "Brief & Analysis",
+    "stepDesign": "Design",
+    "stepDev": "Development",
+    "stepFinal": "Finalization",
+    "stepDone": "Done",
+    "stepUpcoming": "Upcoming",
+    "deliverablesTitle": "Deliverables",
+    "deliverablesSub": "Download your delivered files and resources.",
+    "deliverablesEmpty": "No deliverables yet.",
+    "deliverablesEmptySub": "They will appear here once your projects are finalized.",
+    "download": "Download",
+    "deliverableNotFound": "File not found on the server.",
+    "logout": "Logout"
+  },
+  "admin": {
+    "nav": {
+      "overview": "Overview",
+      "clients": "Clients",
+      "projects": "Projects",
+      "portfolio": "Portfolio",
+      "contacts": "Requests",
+      "newsletter": "Newsletter"
+    },
+    "overview": {
+      "title": "Dashboard",
+      "sub": "Overview of your agency.",
+      "noData": "No data available.",
+      "statsClients": "Clients",
+      "statsProjects": "Projects",
+      "statsInProgress": "In progress",
+      "statsCompleted": "Completed",
+      "statsContacts": "New inquiries",
+      "statsSubscribers": "Newsletter subscribers"
+    },
+    "clients": {
+      "title": "Clients",
+      "empty": "No clients yet.",
+      "tableName": "Name",
+      "tableEmail": "Email",
+      "tableProjects": "Projects",
+      "tableDate": "Registered on",
+      "tableActions": "Actions",
+      "deleteConfirm": "Delete this client and all their projects?"
+    },
+    "projects": {
+      "title": "Projects",
+      "new": "New project",
+      "empty": "No projects.",
+      "unknownClient": "Unknown client",
+      "customType": "Custom",
+      "modalTitle": "New project",
+      "modalClient": "Client",
+      "modalSelectClient": "Select a client",
+      "modalName": "Project name",
+      "modalNamePlaceholder": "Project name",
+      "modalType": "Type",
+      "modalTypeCustom": "Custom",
+      "modalTypePack": "Pack",
+      "modalPack": "Pack",
+      "modalDescription": "Description",
+      "modalProgress": "Progress (%)",
+      "modalDeadline": "Delivery date",
+      "modalDeadlinePlaceholder": "06/15/2026",
+      "modalCancel": "Cancel",
+      "modalCreate": "Create",
+      "detailBack": "Back",
+      "detailProgress": "Progress",
+      "detailNotes": "Notes",
+      "detailDelivery": "Delivery",
+      "deleteConfirm": "Delete this project?"
+    },
+    "contacts": {
+      "title": "Contact inquiries",
+      "empty": "No inquiries.",
+      "statusNew": "New",
+      "statusRead": "Read",
+      "statusReplied": "Replied",
+      "markRead": "Mark as read",
+      "projectLabel": "Project"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "campaignTitle": "Send a campaign",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "Email subject",
+      "contentLabel": "Content (HTML)",
+      "contentPlaceholder": "<h1>Hello!</h1><p>Your content here...</p>",
+      "send": "Send campaign",
+      "sending": "Sending...",
+      "sentTo": "Sent to",
+      "active": "active",
+      "tableEmail": "Email",
+      "tableStatus": "Status",
+      "tableDate": "Subscribed on",
+      "tableActions": "Actions",
+      "statusActive": "Active",
+      "statusUnsubscribed": "Unsubscribed",
+      "subscriber": "subscriber",
+      "errorSend": "Error while sending."
+    },
+    "errorPrefix": "Error",
+    "logout": "Logout"
+  },
+  "newsletter": {
+    "placeholder": "Your email address",
+    "subscribe": "Subscribe",
+    "loading": "...",
+    "successTitle": "Thank you for subscribing!",
+    "error": "An error occurred."
+  },
+  "footer": {
+    "description": "Digital agency specialized in visual identity, web development and community management.",
+    "servicesTitle": "Services",
+    "agencyTitle": "Agency",
+    "contactTitle": "Contact",
+    "copyright": "© 2026 Proxima Digital. All rights reserved."
+  }
+}

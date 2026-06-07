@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { projectAPI, deliverableAPI } from '../api/axios'
@@ -9,22 +10,22 @@ import {
 } from 'lucide-react'
 
 const navItems = [
-  { id: 'dashboard', label: 'Tableau de bord', icon: LayoutDashboard },
-  { id: 'projects', label: 'Mes projets', icon: FolderOpen },
-  { id: 'deliverables', label: 'Livrables', icon: Download },
+  { id: 'dashboard', label: 'dashboard.nav.dashboard', icon: LayoutDashboard },
+  { id: 'projects', label: 'dashboard.nav.projects', icon: FolderOpen },
+  { id: 'deliverables', label: 'dashboard.nav.deliverables', icon: Download },
 ]
 
 const statusConfig = {
-  pending: { label: 'En attente', icon: Clock, class: 'bg-amber-50 text-amber-600' },
-  'in-progress': { label: 'En cours', icon: AlertCircle, class: 'bg-blue-50 text-blue-600' },
-  completed: { label: 'Terminé', icon: CheckCircle, class: 'bg-emerald-50 text-emerald-600' },
+  pending: { label: 'dashboard.statusPending', icon: Clock, class: 'bg-amber-50 text-amber-600' },
+  'in-progress': { label: 'dashboard.statusInProgress', icon: AlertCircle, class: 'bg-blue-50 text-blue-600' },
+  completed: { label: 'dashboard.statusCompleted', icon: CheckCircle, class: 'bg-emerald-50 text-emerald-600' },
 }
 
 const defaultSteps = [
-  { label: 'Brief & Analyse', key: 'brief' },
-  { label: 'Design', key: 'design' },
-  { label: 'Développement', key: 'dev' },
-  { label: 'Finalisation', key: 'final' },
+  { label: 'dashboard.stepBrief', key: 'brief' },
+  { label: 'dashboard.stepDesign', key: 'design' },
+  { label: 'dashboard.stepDev', key: 'dev' },
+  { label: 'dashboard.stepFinal', key: 'final' },
 ]
 
 function getStepProgress(progress) {
@@ -42,6 +43,7 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true)
   const [selectedProject, setSelectedProject] = useState(null)
   const { user, logout } = useAuth()
+  const { t } = useTranslation()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -70,7 +72,7 @@ export default function Dashboard() {
       window.URL.revokeObjectURL(url)
     } catch (err) {
       if (err.response?.status === 404) {
-        alert('Fichier introuvable sur le serveur.')
+        alert(t('dashboard.deliverableNotFound'))
       }
     }
   }
@@ -94,38 +96,38 @@ export default function Dashboard() {
   const renderDashboard = () => (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold text-gray-900">Bon retour, {user?.name || 'Client'}</h1>
-        <p className="text-sm text-gray-500 mt-1">Voici un résumé de vos projets.</p>
+        <h1 className="text-2xl font-semibold text-gray-900">{t('dashboard.greeting', { name: user?.name || 'Client' })}</h1>
+        <p className="text-sm text-gray-500 mt-1">{t('dashboard.greetingSub')}</p>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
           <FolderOpen className="w-5 h-5 text-blue-600 mb-3" />
           <p className="text-2xl font-semibold text-gray-900">{projects.length}</p>
-          <p className="text-xs text-gray-500 mt-0.5">Projets total</p>
+          <p className="text-xs text-gray-500 mt-0.5">{t('dashboard.stats.totalProjects')}</p>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
           <TrendingUp className="w-5 h-5 text-cyan-600 mb-3" />
           <p className="text-2xl font-semibold text-gray-900">{activeCount}</p>
-          <p className="text-xs text-gray-500 mt-0.5">En cours</p>
+          <p className="text-xs text-gray-500 mt-0.5">{t('dashboard.stats.inProgress')}</p>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
           <CheckCircle className="w-5 h-5 text-emerald-600 mb-3" />
           <p className="text-2xl font-semibold text-gray-900">{completedCount}</p>
-          <p className="text-xs text-gray-500 mt-0.5">Terminés</p>
+          <p className="text-xs text-gray-500 mt-0.5">{t('dashboard.stats.completed')}</p>
         </div>
         <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
           <Clock className="w-5 h-5 text-amber-600 mb-3" />
           <p className="text-2xl font-semibold text-gray-900">{pendingCount}</p>
-          <p className="text-xs text-gray-500 mt-0.5">En attente</p>
+          <p className="text-xs text-gray-500 mt-0.5">{t('dashboard.stats.pending')}</p>
         </div>
       </div>
 
       {projects.length > 0 && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100">
           <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-gray-900">Projets récents</h2>
-            <button onClick={() => setActiveTab('projects')} className="text-xs text-blue-600 hover:text-blue-700 font-medium">Voir tout</button>
+            <h2 className="text-sm font-semibold text-gray-900">{t('dashboard.recentProjects')}</h2>
+            <button onClick={() => setActiveTab('projects')} className="text-xs text-blue-600 hover:text-blue-700 font-medium">{t('dashboard.viewAll')}</button>
           </div>
           <div className="divide-y divide-gray-50">
             {projects.slice(0, 3).map((p) => {
@@ -135,12 +137,12 @@ export default function Dashboard() {
                   <div>
                     <p className="text-sm font-medium text-gray-900">{p.name}</p>
                     <p className="text-xs text-gray-400 mt-0.5">
-                      {p.type === 'pack' ? `Pack ${p.pack}` : p.customDescription || 'Sur mesure'}
+                      {p.type === 'pack' ? `Pack ${p.pack}` : p.customDescription || t('dashboard.customProject')}
                     </p>
                   </div>
                   <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${statusConfig[p.status]?.class}`}>
                     <StatusIcon className="w-3 h-3" />
-                    {statusConfig[p.status]?.label}
+                    {t(statusConfig[p.status]?.label)}
                   </span>
                 </div>
               )
@@ -153,10 +155,10 @@ export default function Dashboard() {
         <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl p-5 shadow-lg">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-semibold text-white">{activeCount} projet{activeCount > 1 ? 's' : ''} en cours</p>
-              <p className="text-xs text-blue-100 mt-0.5">Consultez l'avancement de vos projets</p>
+              <p className="text-sm font-semibold text-white">{t('dashboard.inProgressBanner', { count: activeCount })}</p>
+              <p className="text-xs text-blue-100 mt-0.5">{t('dashboard.inProgressSub')}</p>
             </div>
-            <button onClick={() => setActiveTab('projects')} className="text-xs text-white bg-white/20 px-3 py-1.5 rounded-lg hover:bg-white/30 transition">Voir</button>
+            <button onClick={() => setActiveTab('projects')} className="text-xs text-white bg-white/20 px-3 py-1.5 rounded-lg hover:bg-white/30 transition">{t('dashboard.inProgressView')}</button>
           </div>
         </div>
       )}
@@ -164,8 +166,8 @@ export default function Dashboard() {
       {!loading && projects.length === 0 && (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-12 text-center">
           <Package className="w-12 h-12 text-gray-200 mx-auto mb-4" />
-          <p className="text-gray-500 text-sm">Aucun projet pour le moment.</p>
-          <p className="text-gray-400 text-xs mt-1">Vos projets apparaîtront ici une fois créés par votre agence.</p>
+          <p className="text-gray-500 text-sm">{t('dashboard.emptyTitle')}</p>
+          <p className="text-gray-400 text-xs mt-1">{t('dashboard.emptySub')}</p>
         </div>
       )}
     </div>
@@ -176,8 +178,8 @@ export default function Dashboard() {
     return (
       <div className="space-y-8">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">Mes projets</h1>
-          <p className="text-sm text-gray-500 mt-1">Suivez l'avancement de chacun de vos projets.</p>
+          <h1 className="text-2xl font-semibold text-gray-900">{t('dashboard.projectsTitle')}</h1>
+          <p className="text-sm text-gray-500 mt-1">{t('dashboard.projectsSub')}</p>
         </div>
 
         {loading ? (
@@ -187,7 +189,7 @@ export default function Dashboard() {
         ) : projects.length === 0 ? (
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-12 text-center">
             <Package className="w-12 h-12 text-gray-200 mx-auto mb-4" />
-            <p className="text-gray-500 text-sm">Aucun projet pour le moment.</p>
+            <p className="text-gray-500 text-sm">{t('dashboard.projectsEmpty')}</p>
           </div>
         ) : (
           <div className="grid gap-6">
@@ -202,21 +204,21 @@ export default function Dashboard() {
                       <h3 className="text-lg font-semibold text-gray-900">{p.name}</h3>
                       <p className="text-xs text-gray-400 mt-0.5">
                         {p.type === 'pack'
-                          ? `Pack ${p.pack}`
-                          : 'Projet sur mesure'
+                          ? t('dashboard.pack') + ' ' + p.pack
+                          : t('dashboard.customProject')
                         }
-                        {p.deadline ? ` · Échéance ${p.deadline}` : ''}
+                        {p.deadline ? ' · ' + t('dashboard.deadline') + ' : ' + p.deadline : ''}
                       </p>
                     </div>
                     <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium whitespace-nowrap shrink-0 ${statusConfig[p.status]?.class}`}>
                       <StatusIcon className="w-3 h-3" />
-                      {statusConfig[p.status]?.label}
+                      {t(statusConfig[p.status]?.label)}
                     </span>
                   </div>
 
                   <div>
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-medium text-gray-700">Progression</span>
+                      <span className="text-xs font-medium text-gray-700">{t('dashboard.progress')}</span>
                       <span className="text-xs font-semibold text-gray-500">{p.progress}%</span>
                     </div>
                     <div className="h-2.5 bg-gray-100 rounded-full overflow-hidden">
@@ -257,7 +259,7 @@ export default function Dashboard() {
                           </div>
                           <p className={`text-[11px] leading-tight ${
                             isDone ? 'text-emerald-700 font-medium' : isCurrent ? 'text-blue-700 font-medium' : 'text-gray-400'
-                          }`}>{step.label}</p>
+                          }`}>{t(step.label)}</p>
                         </div>
                       )
                     })}
@@ -271,14 +273,14 @@ export default function Dashboard() {
                     {p.deadline && (
                       <div className="flex items-center gap-1.5 text-xs text-gray-400">
                         <Calendar className="w-3.5 h-3.5" />
-                        Livraison prévue : {p.deadline}
+                        {t('dashboard.deadline') + ' : ' + p.deadline}
                       </div>
                     )}
                     <button
                       onClick={() => setSelectedProject(p)}
                       className="ml-auto inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-700 transition"
                     >
-                      Voir détails
+                      {t('dashboard.viewDetails')}
                       <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -305,7 +307,7 @@ export default function Dashboard() {
           className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 hover:text-gray-700 transition"
         >
           <ChevronLeft className="w-4 h-4" />
-          Retour aux projets
+          {t('dashboard.detailBack')}
         </button>
 
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 space-y-6">
@@ -313,19 +315,19 @@ export default function Dashboard() {
             <div>
               <h1 className="text-2xl font-semibold text-gray-900">{p.name}</h1>
               <p className="text-sm text-gray-400 mt-1">
-                {p.type === 'pack' ? `Pack ${p.pack}` : 'Projet sur mesure'}
-                {p.deadline ? ` · Échéance : ${p.deadline}` : ''}
+                {p.type === 'pack' ? t('dashboard.pack') + ' ' + p.pack : t('dashboard.customProject')}
+                {p.deadline ? ' · ' + t('dashboard.deadline') + ' : ' + p.deadline : ''}
               </p>
             </div>
             <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${statusConfig[p.status]?.class}`}>
               <StatusIcon className="w-3 h-3" />
-              {statusConfig[p.status]?.label}
+              {t(statusConfig[p.status]?.label)}
             </span>
           </div>
 
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-medium text-gray-700">Progression</span>
+              <span className="text-sm font-medium text-gray-700">{t('dashboard.progress')}</span>
               <span className="text-sm font-bold text-gray-600">{p.progress}%</span>
             </div>
             <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
@@ -364,11 +366,11 @@ export default function Dashboard() {
                   </div>
                   <p className={`text-sm font-medium ${
                     isDone ? 'text-emerald-700' : isCurrent ? 'text-blue-700' : 'text-gray-400'
-                  }`}>{step.label}</p>
+                  }`}>{t(step.label)}</p>
                   <p className={`text-xs mt-0.5 ${
                     isDone ? 'text-emerald-500' : isCurrent ? 'text-blue-400' : 'text-gray-300'
                   }`}>
-                    {isDone ? 'Terminé' : isCurrent ? 'En cours' : 'À venir'}
+                    {isDone ? t('dashboard.stepDone') : isCurrent ? t('dashboard.statusInProgress') : t('dashboard.stepUpcoming')}
                   </p>
                 </div>
               )
@@ -377,7 +379,7 @@ export default function Dashboard() {
 
           {p.description && (
             <div>
-              <h3 className="text-sm font-semibold text-gray-700 mb-2">Description</h3>
+              <h3 className="text-sm font-semibold text-gray-700 mb-2">{t('dashboard.detailDescription')}</h3>
               <p className="text-sm text-gray-500">{p.description}</p>
             </div>
           )}
@@ -386,7 +388,7 @@ export default function Dashboard() {
         {p.deliverables && p.deliverables.length > 0 && (
           <div className="bg-white rounded-xl shadow-sm border border-gray-100">
             <div className="px-6 py-4 border-b border-gray-100">
-              <h2 className="text-sm font-semibold text-gray-900">Livrables de ce projet</h2>
+              <h2 className="text-sm font-semibold text-gray-900">{t('dashboard.detailDeliverables')}</h2>
             </div>
             <div className="divide-y divide-gray-50">
               {p.deliverables.map((d, i) => (
@@ -406,7 +408,7 @@ export default function Dashboard() {
                   </div>
                   <button onClick={() => handleDownload(d._id, d.name)} className="text-xs font-medium text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-lg hover:bg-blue-100 transition flex items-center gap-1.5">
                       <FileDown className="w-3.5 h-3.5" />
-                      Télécharger
+                      {t('dashboard.download')}
                     </button>
                   </div>
                 ))}
@@ -420,8 +422,8 @@ export default function Dashboard() {
   const renderDeliverables = () => (
     <div className="space-y-8">
       <div>
-        <h1 className="text-2xl font-semibold text-gray-900">Livrables</h1>
-        <p className="text-sm text-gray-500 mt-1">Téléchargez vos fichiers et ressources livrés.</p>
+        <h1 className="text-2xl font-semibold text-gray-900">{t('dashboard.deliverablesTitle')}</h1>
+        <p className="text-sm text-gray-500 mt-1">{t('dashboard.deliverablesSub')}</p>
       </div>
 
       {loading ? (
@@ -431,8 +433,8 @@ export default function Dashboard() {
       ) : allDeliverables.length === 0 ? (
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-12 text-center">
           <Download className="w-12 h-12 text-gray-200 mx-auto mb-4" />
-          <p className="text-gray-500 text-sm">Aucun livrable pour le moment.</p>
-          <p className="text-gray-400 text-xs mt-1">Ils apparaîtront ici une fois vos projets finalisés.</p>
+          <p className="text-gray-500 text-sm">{t('dashboard.deliverablesEmpty')}</p>
+          <p className="text-gray-400 text-xs mt-1">{t('dashboard.deliverablesEmptySub')}</p>
         </div>
       ) : (
         <div className="space-y-6">
@@ -441,7 +443,7 @@ export default function Dashboard() {
               <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-sm font-semibold text-gray-900">{p.name}</h2>
                 <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium ${statusConfig[p.status]?.class}`}>
-                  {statusConfig[p.status]?.label}
+                  {t(statusConfig[p.status]?.label)}
                 </span>
               </div>
               <div className="divide-y divide-gray-50">
@@ -462,7 +464,7 @@ export default function Dashboard() {
                     </div>
                     <button onClick={() => handleDownload(d._id, d.name)} className="text-xs font-medium text-blue-600 hover:text-blue-700 bg-blue-50 px-3 py-1.5 rounded-lg hover:bg-blue-100 transition flex items-center gap-1.5">
                       <FileDown className="w-3.5 h-3.5" />
-                      Télécharger
+                      {t('dashboard.download')}
                     </button>
                   </div>
                 ))}
@@ -480,7 +482,7 @@ export default function Dashboard() {
         <div className="fixed inset-0 bg-black/20 z-40 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
-      <aside className={`fixed lg:sticky top-0 left-0 z-50 h-full w-64 bg-white border-r border-gray-200 transform transition-transform duration-300 lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <aside className={`fixed lg:sticky top-0 left-0 z-50 h-full lg:h-screen w-64 bg-white border-r border-gray-200 transform transition-transform duration-300 lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
           <Link to="/" className="flex items-center gap-2">
             <img src="/logo.png" alt="Proxima Digital" className="w-8 h-8 rounded-lg object-cover" />
@@ -504,7 +506,7 @@ export default function Dashboard() {
                 }`}
               >
                 <Icon className={`w-4 h-4 ${activeTab === item.id && !selectedProject ? 'text-white' : 'text-gray-400'}`} />
-                {item.label}
+                {t(item.label)}
               </button>
             )
           })}
@@ -515,7 +517,7 @@ export default function Dashboard() {
             className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 transition"
           >
             <LogOut className="w-4 h-4" />
-            Déconnexion
+            {t('dashboard.logout')}
           </button>
         </div>
       </aside>

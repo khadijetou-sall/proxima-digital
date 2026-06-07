@@ -1,4 +1,15 @@
+const nodemailer = require('nodemailer');
 const NewsletterSubscriber = require('../models/NewsletterSubscriber');
+
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
+  secure: false,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+});
 
 exports.subscribe = async (req, res) => {
   try {
@@ -56,6 +67,45 @@ exports.remove = async (req, res) => {
     const subscriber = await NewsletterSubscriber.findByIdAndDelete(req.params.id);
     if (!subscriber) return res.status(404).json({ message: 'Abonné introuvable.' });
     res.json({ message: 'Abonné supprimé.' });
+  } catch (error) {
+    res.status(500).json({ message: 'Erreur serveur.' });
+  }
+};
+
+exports.sendCampaign = async (req, res) => {
+  try {
+    const { subject, html } = req.body;
+    if (!subject || !html) {
+      return res.status(400).json({ message: 'Sujet et contenu requis.' });
+    }
+
+    const subscribers = await NewsletterSubscriber.find({ subscribed: true });
+
+    if (subscribers.length === 0) {
+      return res.status(400).json({ message: 'Aucun abonné actif.' });
+    }
+
+    const results = { sent: 0, failed: 0, errors: [] };
+
+    for (const sub of subscribers) {
+      try {
+        await transporter.sendMail({
+          from: `"Proxima Digital" <${process.env.SMTP_FROM}>`,
+          to: sub.email,
+          subject,
+          html,
+        });
+        results.sent++;
+      } catch (err) {
+        results.failed++;
+        results.errors.push(sub.email);
+      }
+    }
+
+    res.json({
+      message: `Campagne terminée : ${results.sent} envoyé(s), ${results.failed} échec(s).`,
+      results,
+    });
   } catch (error) {
     res.status(500).json({ message: 'Erreur serveur.' });
   }

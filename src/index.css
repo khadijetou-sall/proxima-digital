@@ -19,7 +19,6 @@ body {
   color: white;
 }
 
-/* Apple-style scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -37,7 +36,6 @@ body {
   background: #94a3b8;
 }
 
-/* Reveal animation */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -49,7 +47,6 @@ body {
   transform: translateY(0);
 }
 
-/* Stagger children */
 .stagger-children > * {
   opacity: 0;
   transform: translateY(20px);
@@ -62,13 +59,14 @@ body {
 .stagger-children.is-visible > *:nth-child(4) { transition-delay: 300ms; }
 .stagger-children.is-visible > *:nth-child(5) { transition-delay: 400ms; }
 .stagger-children.is-visible > *:nth-child(6) { transition-delay: 500ms; }
+.stagger-children.is-visible > *:nth-child(7) { transition-delay: 600ms; }
+.stagger-children.is-visible > *:nth-child(8) { transition-delay: 700ms; }
 
 .stagger-children.is-visible > * {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Smooth Apple-style card hover */
 .apple-card {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -78,7 +76,6 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-/* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, #2563eb, #06b6d4);
   -webkit-background-clip: text;
@@ -86,7 +83,6 @@ body {
   background-clip: text;
 }
 
-/* Hero gradient animation */
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -96,4 +92,126 @@ body {
 .gradient-shift {
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 7s ease-in-out infinite 1s;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-morph {
+  animation: morph 8s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-0.5%, -0.5%); }
+}
+
+.glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.card-shine:hover::after {
+  opacity: 1;
+}
+
+.expertise-card {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expertise-card:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+.expertise-card .card-visual {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expertise-card:hover .card-visual {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.expertise-card .card-overlay {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.expertise-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.counter-value {
+  display: inline-block;
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-mesh {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 0% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 100% 0%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
 }
