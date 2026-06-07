@@ -22,23 +22,27 @@ export default function LanguageSelector({ light } = {}) {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`px-2 sm:px-3 py-2 rounded-full text-sm transition flex items-center gap-1 sm:gap-2 ${light ? 'bg-gray-100 text-gray-700 hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'}`}
+        className={`px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm transition flex items-center gap-1 sm:gap-2 ${
+          light
+            ? 'bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200'
+            : 'bg-white/15 text-white hover:bg-white/25 border border-white/20'
+        }`}
         aria-label="Select language"
       >
-        <span className="text-base sm:text-lg leading-none">{current.flag}</span>
+        <span className="text-sm sm:text-lg leading-none">{current.flag}</span>
         <span className="hidden sm:inline">{current.label}</span>
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+        <div className="absolute right-0 mt-2 w-44 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden z-50">
           {languages.map((l) => (
             <button
               key={l.code}
               onClick={() => change(l.code)}
-              className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition ${i18n.language === l.code ? 'bg-gray-50' : ''}`}
+              className={`w-full text-left px-4 py-2.5 text-sm hover:bg-gray-50 transition flex items-center gap-2 ${i18n.language === l.code ? 'bg-gray-50 font-medium' : ''}`}
             >
-              <span className="mr-2">{l.flag}</span>
-              {l.label}
+              <span>{l.flag}</span>
+              <span>{l.label}</span>
             </button>
           ))}
         </div>
