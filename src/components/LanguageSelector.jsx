@@ -7,7 +7,7 @@ const languages = [
   { code: 'ar', label: 'العربية', flag: '🇸🇦' },
 ]
 
-export default function LanguageSelector() {
+export default function LanguageSelector({ light } = {}) {
   const { i18n } = useTranslation()
   const [open, setOpen] = useState(false)
 
@@ -22,10 +22,10 @@ export default function LanguageSelector() {
     <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="px-3 py-2 rounded-full text-sm bg-white/10 text-white hover:bg-white/20 transition hidden sm:inline-flex items-center gap-2"
+        className={`px-2 sm:px-3 py-2 rounded-full text-sm transition flex items-center gap-1 sm:gap-2 ${light ? 'bg-gray-100 text-gray-700 hover:bg-gray-200' : 'bg-white/10 text-white hover:bg-white/20'}`}
         aria-label="Select language"
       >
-        <span className="text-lg">{current.flag}</span>
+        <span className="text-base sm:text-lg leading-none">{current.flag}</span>
         <span className="hidden sm:inline">{current.label}</span>
       </button>
 

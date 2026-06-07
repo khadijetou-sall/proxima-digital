@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { projectAPI, deliverableAPI } from '../api/axios'
+import LanguageSelector from '../components/LanguageSelector'
 import {
   LayoutDashboard, FolderOpen, Download, LogOut, Menu, X,
   Clock, CheckCircle, AlertCircle, ArrowRight, FileText, Image, ExternalLink, ChevronRight,
@@ -528,12 +529,13 @@ export default function Dashboard() {
             <button onClick={() => setSidebarOpen(true)} className="lg:hidden text-gray-600 hover:text-gray-900">
               <Menu className="w-5 h-5" />
             </button>
-            <div className="flex items-center gap-3 ml-auto">
-              <div className="hidden sm:flex items-center gap-2 text-sm text-gray-500">
+            <div className="flex items-center gap-2 sm:gap-3 ml-auto">
+              <LanguageSelector light />
+              <div className="hidden sm:flex items-center gap-2 text-sm text-gray-500 shrink-0">
                 <User className="w-4 h-4 text-gray-400" />
                 {user?.name || 'Client'}
               </div>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white text-xs font-bold shadow-md">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white text-xs font-bold shadow-md shrink-0">
                 {(user?.name || 'C').charAt(0).toUpperCase()}
               </div>
             </div>

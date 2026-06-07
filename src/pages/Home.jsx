@@ -156,15 +156,16 @@ function ExpertiseCard({ item, index, t }) {
 
   return (
     <div className="expertise-card group relative bg-white rounded-3xl overflow-hidden border border-gray-100/80 hover:shadow-2xl cursor-pointer">
-      <div className="relative h-72 overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden">
         {hasImage ? (
           <>
             <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient}`} />
             <img
               src={item.image}
               alt={item.title}
-              className="relative w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+              className="relative w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </>
         ) : (
           <>
@@ -195,7 +196,6 @@ function ExpertiseCard({ item, index, t }) {
             </div>
           </>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent opacity-40" />
       </div>
 
       <div className="px-5 py-3.5">
