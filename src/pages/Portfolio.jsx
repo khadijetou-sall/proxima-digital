@@ -198,7 +198,7 @@ export default function Portfolio() {
               <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
                 <li><a href="mailto:digitalproxima317@gmail.com" className="hover:text-white transition">{t('nav.contact')}</a></li>
                 <li><a href="https://wa.me/222615040793" target="_blank" rel="noreferrer" className="hover:text-white transition">WhatsApp</a></li>
-                <li><a href="https://www.linkedin.com/company/proxima-digital/" target="_blank" rel="noreferrer" className="hover:text-white transition">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/proxima-digital-7a1638414" target="_blank" rel="noreferrer" className="hover:text-white transition">LinkedIn</a></li>
               </ul>
             </div>
           </div>

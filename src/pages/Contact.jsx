@@ -165,7 +165,7 @@ export default function Contact() {
               <div className="flex justify-center gap-4">
                 <a href="https://www.instagram.com/digitalproxima317" target="_blank" rel="noreferrer" className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition font-medium">Instagram</a>
                 <a href="https://www.tiktok.com/@proxima..digital" target="_blank" rel="noreferrer" className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition font-medium">TikTok</a>
-                <a href="https://www.linkedin.com/company/proxima-digital/" target="_blank" rel="noreferrer" className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition font-medium">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/proxima-digital-7a1638414" target="_blank" rel="noreferrer" className="text-xs sm:text-sm text-gray-600 hover:text-gray-900 transition font-medium">LinkedIn</a>
               </div>
             </div>
 
@@ -220,7 +220,7 @@ export default function Contact() {
                 <li><a href="mailto:digitalproxima317@gmail.com" className="hover:text-white transition">{t('nav.contact')}</a></li>
                 <li><a href="https://www.instagram.com/digitalproxima317" target="_blank" rel="noreferrer" className="hover:text-white transition">Instagram</a></li>
                 <li><a href="https://www.tiktok.com/@proxima..digital" target="_blank" rel="noreferrer" className="hover:text-white transition">TikTok</a></li>
-                <li><a href="https://www.linkedin.com/company/proxima-digital/" target="_blank" rel="noreferrer" className="hover:text-white transition">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/proxima-digital-7a1638414" target="_blank" rel="noreferrer" className="hover:text-white transition">LinkedIn</a></li>
               </ul>
             </div>
           </div>

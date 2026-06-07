@@ -482,7 +482,7 @@ export default function Home() {
                 <li><a href="https://wa.me/222615040793" target="_blank" rel="noreferrer" className="hover:text-white transition">WhatsApp</a></li>
                 <li><a href="https://www.instagram.com/digitalproxima317" target="_blank" rel="noreferrer" className="hover:text-white transition">Instagram</a></li>
                 <li><a href="https://www.tiktok.com/@proxima..digital" target="_blank" rel="noreferrer" className="hover:text-white transition">TikTok</a></li>
-                <li><a href="https://www.linkedin.com/company/proxima-digital/" target="_blank" rel="noreferrer" className="hover:text-white transition">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/proxima-digital-7a1638414" target="_blank" rel="noreferrer" className="hover:text-white transition">LinkedIn</a></li>
               </ul>
             </div>
           </div>
