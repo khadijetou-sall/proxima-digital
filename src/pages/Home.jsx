@@ -215,8 +215,8 @@ export default function Home() {
   const [slideIndex, setSlideIndex] = useState(0)
 
   const heroSlides = [
-    { src: '/Gemini_Generated_Image_q8ijqsq8ijqsq8ij.png', alt: 'Branding' },
-    { src: '/Gemini_Generated_Image_hunfryhunfryhunf.png', alt: 'Création' },
+    { src: '/Gemini_Generated_Image_q8ijqsq8ijqsq8ij.png', mobileSrc: '/Gemini_Generated_Image_hdw16mhdw16mhdw1.png', alt: 'Branding' },
+    { src: '/Gemini_Generated_Image_hunfryhunfryhunf.png', mobileSrc: '/Gemini_Generated_Image_824hko824hko824h.png', alt: 'Création' },
   ]
 
   useEffect(() => {
@@ -334,9 +334,17 @@ export default function Home() {
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === slideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
           >
             <img
+              src={slide.mobileSrc}
+              alt={slide.alt}
+              className="block sm:hidden absolute inset-0 w-full h-full object-contain object-center"
+              style={{
+                animation: idx === slideIndex ? 'kenBurns 3s ease-in-out forwards' : 'none',
+              }}
+            />
+            <img
               src={slide.src}
               alt={slide.alt}
-              className="absolute inset-0 w-full h-full object-contain sm:object-cover object-center sm:object-center"
+              className="hidden sm:block absolute inset-0 w-full h-full object-cover object-center"
               style={{
                 animation: idx === slideIndex ? 'kenBurns 3s ease-in-out forwards' : 'none',
               }}
