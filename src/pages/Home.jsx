@@ -445,35 +445,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.1),transparent_50%)]" />
-        <div className="absolute -top-24 -right-24 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.15] max-w-3xl mx-auto">
-            Prêt à transformer votre présence digitale ?
-          </h2>
-          <p className="mt-6 text-lg text-blue-200 max-w-xl mx-auto">
-            Discutons de votre projet lors d'une consultation gratuite et sans engagement.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all active:scale-[0.98] shadow-xl shadow-black/20"
-            >
-              {t('home.hero.ctaContact')}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/services"
-              className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-4 rounded-full text-sm font-semibold hover:bg-white/10 transition-all backdrop-blur-sm"
-            >
-              {t('home.hero.ctaServices')}
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* FOOTER */}
       <footer className="bg-gray-900 text-gray-400">

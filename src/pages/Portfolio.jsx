@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Search, X, FolderOpen, ArrowRight, Globe, ExternalLink, Paperclip } from 'lucide-react'
 import Header from '../components/Header'
@@ -165,6 +166,45 @@ export default function Portfolio() {
           )}
         </div>
       </section>
+
+      <footer className="bg-gray-900 text-gray-400">
+        <div className="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8">
+          <div className="grid gap-8 sm:gap-10 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="col-span-2 sm:col-span-2 lg:col-span-1">
+              <div className="flex items-center gap-2.5 mb-4 sm:mb-6">
+                <img src="/logo.png" alt="Proxima Digital" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-cover shadow-lg" />
+                <span className="text-sm sm:text-base font-semibold text-white">{t('brand')}</span>
+              </div>
+              <p className="text-xs sm:text-sm leading-relaxed">{t('footer.description')}</p>
+            </div>
+            <div>
+              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">{t('footer.servicesTitle')}</h3>
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+                <li><Link to="/services" className="hover:text-white transition">{t('home.services.identity.title')}</Link></li>
+                <li><Link to="/services" className="hover:text-white transition">{t('home.services.community.title')}</Link></li>
+                <li><Link to="/services" className="hover:text-white transition">{t('home.services.dev.title')}</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">{t('footer.agencyTitle')}</h3>
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+                <li><Link to="/" className="hover:text-white transition">{t('nav.home')}</Link></li>
+                <li><Link to="/about" className="hover:text-white transition">{t('nav.about')}</Link></li>
+                <li><Link to="/contact" className="hover:text-white transition">{t('nav.contact')}</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xs sm:text-sm font-semibold text-white mb-3 sm:mb-4">{t('footer.contactTitle')}</h3>
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
+                <li><a href="mailto:digitalproxima317@gmail.com" className="hover:text-white transition">{t('nav.contact')}</a></li>
+                <li><a href="https://wa.me/222615040793" target="_blank" rel="noreferrer" className="hover:text-white transition">WhatsApp</a></li>
+                <li><a href="https://www.linkedin.com/company/proxima-digital/" target="_blank" rel="noreferrer" className="hover:text-white transition">LinkedIn</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-800 text-xs sm:text-sm text-center">{t('footer.copyright')}</div>
+        </div>
+      </footer>
     </div>
   )
 }
