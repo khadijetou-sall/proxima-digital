@@ -94,7 +94,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="overflow-x-auto -mx-3 sm:-mx-6 px-3 sm:px-6 pb-2 sm:pb-3 hide-scrollbar">
+        <div className="overflow-x-auto sm:overflow-visible -mx-3 sm:mx-0 px-3 sm:px-0 pb-2 sm:pb-3 hide-scrollbar">
           <nav className="flex items-center gap-1 sm:gap-1.5 w-max mx-auto">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to

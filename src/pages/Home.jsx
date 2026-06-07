@@ -327,19 +327,16 @@ export default function Home() {
       <Header />
 
       {/* HERO */}
-      <section ref={heroRef} className="relative min-h-[100dvh] sm:min-h-screen flex items-start sm:items-center bg-black overflow-hidden pt-28 sm:pt-0">
+      <section ref={heroRef} className="relative min-h-[100dvh] sm:min-h-screen flex items-end sm:items-center bg-black overflow-hidden sm:pt-0">
         {heroSlides.map((slide, idx) => (
           <div
             key={slide.src}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === slideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            className={`absolute inset-0 transition-opacity duration-300 sm:duration-1000 ease-in-out ${idx === slideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
           >
             <img
               src={slide.mobileSrc}
               alt={slide.alt}
               className="block sm:hidden absolute inset-0 w-full h-full object-contain object-center"
-              style={{
-                animation: idx === slideIndex ? 'kenBurns 3s ease-in-out forwards' : 'none',
-              }}
             />
             <img
               src={slide.src}
@@ -351,11 +348,11 @@ export default function Home() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-black/50 sm:bg-black/30 z-20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
+        <div className="absolute inset-0 sm:bg-black/30 z-20" />
+        <div className="absolute inset-0 bg-gradient-to-r sm:from-black/60 sm:via-black/30 sm:to-transparent z-20" />
+        <div className="absolute inset-0 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
 
-        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full pt-8 sm:pt-20 pb-16 sm:pb-16">
+        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full pt-0 sm:pt-20 pb-12 sm:pb-16">
           <div className="max-w-3xl">
 
             <div className="hero-title">
@@ -384,7 +381,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-40 bg-gradient-to-t from-[#f5f5f7] to-transparent z-30" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-40 bg-gradient-to-t from-[#f5f5f7] to-transparent z-20" />
       </section>
 
       {/* EXPERTISE */}
