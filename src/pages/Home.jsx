@@ -331,7 +331,7 @@ export default function Home() {
         {heroSlides.map((slide, idx) => (
           <div
             key={slide.src}
-            className={`absolute inset-0 transition-opacity duration-300 sm:duration-1000 ease-in-out ${idx === slideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            className={`absolute inset-0 sm:transition-opacity sm:duration-1000 sm:ease-in-out ${idx === slideIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
           >
             <img
               src={slide.mobileSrc}
@@ -348,15 +348,15 @@ export default function Home() {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-black/20 sm:bg-black/30 z-20" />
+        <div className="absolute inset-0 sm:bg-black/30 z-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 sm:from-black/60 sm:via-black/30 sm:to-transparent z-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
 
-        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full max-sm:-mt-10 sm:pt-20 sm:pb-16">
+        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full max-sm:-mt-20 sm:pt-20 sm:pb-16">
           <div className="max-w-3xl">
 
             <div className="hero-title">
-              <span className="block text-2xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.15]" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5), 0 4px 40px rgba(0,0,0,0.3)' }}>
+              <span className="block text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white leading-[1.15]" style={{ textShadow: '0 2px 20px rgba(0,0,0,0.5), 0 4px 40px rgba(0,0,0,0.3)' }}>
                 {t('home.hero.line1')}
               </span>
             </div>

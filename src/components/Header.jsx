@@ -65,7 +65,7 @@ export default function Header() {
             })}
           </nav>
 
-          <div className="flex items-center gap-0.5 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-3 sm:gap-2 shrink-0">
             <LanguageSelector />
 
             {user ? (
