@@ -327,7 +327,7 @@ export default function Home() {
       <Header />
 
       {/* HERO */}
-      <section ref={heroRef} className="relative min-h-[100dvh] sm:min-h-screen flex items-end sm:items-center bg-black overflow-hidden sm:pt-0">
+      <section ref={heroRef} className="relative min-h-[100dvh] sm:min-h-screen flex items-center bg-black overflow-hidden sm:pt-0">
         {heroSlides.map((slide, idx) => (
           <div
             key={slide.src}
@@ -352,8 +352,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 sm:from-black/60 sm:via-black/30 sm:to-transparent z-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
 
-        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full h-full sm:h-auto flex flex-col sm:block sm:pt-20 pb-12 sm:pb-16">
-          <div className="flex-1 sm:hidden" />
+        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full sm:pt-20 sm:pb-16">
           <div className="max-w-3xl">
 
             <div className="hero-title">
@@ -365,24 +364,42 @@ export default function Home() {
               {t('home.hero.sub')}
             </p>
           </div>
-          <div className="flex-1 sm:hidden" />
-          <div className="hero-cta sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all active:scale-[0.98] shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20"
-              >
-                {t('home.hero.ctaServices')}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-black/20 backdrop-blur-md border border-white/40 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm font-semibold hover:bg-black/30 hover:border-white/60 transition-all shadow-lg"
-                style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
-              >
-                {t('home.hero.ctaContact')}
-              </Link>
-            </div>
+          <div className="hidden sm:flex hero-cta mt-10 flex-row gap-4">
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all active:scale-[0.98] shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20"
+            >
+              {t('home.hero.ctaServices')}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-black/20 backdrop-blur-md border border-white/40 text-white px-8 py-4 rounded-full text-sm font-semibold hover:bg-black/30 hover:border-white/60 transition-all shadow-lg"
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
+            >
+              {t('home.hero.ctaContact')}
+            </Link>
           </div>
+        </div>
+
+        <div className="block sm:hidden absolute bottom-12 left-0 right-0 z-30 px-6">
+          <div className="hero-cta flex flex-col gap-3 max-w-3xl mx-auto">
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-full text-sm font-semibold hover:bg-gray-100 transition-all active:scale-[0.98] shadow-lg shadow-white/10 hover:shadow-xl hover:shadow-white/20"
+            >
+              {t('home.hero.ctaServices')}
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-black/20 backdrop-blur-md border border-white/40 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-black/30 hover:border-white/60 transition-all shadow-lg"
+              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.5)' }}
+            >
+              {t('home.hero.ctaContact')}
+            </Link>
+          </div>
+        </div>
         <div className="absolute bottom-0 left-0 right-0 h-16 sm:h-40 bg-gradient-to-t from-[#f5f5f7] to-transparent z-20" />
       </section>
 
