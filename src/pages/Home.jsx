@@ -327,7 +327,7 @@ export default function Home() {
       <Header />
 
       {/* HERO */}
-      <section ref={heroRef} className="relative min-h-[100dvh] sm:min-h-screen flex items-center bg-black overflow-hidden sm:pt-0">
+      <section ref={heroRef} className="relative min-h-[100dvh] sm:min-h-screen flex items-center max-sm:bg-[#f5f5f7] sm:bg-black overflow-hidden sm:pt-0">
         {heroSlides.map((slide, idx) => (
           <div
             key={slide.src}
@@ -352,7 +352,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 sm:from-black/60 sm:via-black/30 sm:to-transparent z-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 sm:bg-gradient-to-t from-black/40 via-transparent to-transparent z-20" />
 
-        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full sm:pt-20 sm:pb-16">
+        <div className="relative z-30 mx-auto max-w-7xl px-6 lg:px-8 w-full max-sm:-mt-10 sm:pt-20 sm:pb-16">
           <div className="max-w-3xl">
 
             <div className="hero-title">
