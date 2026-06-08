@@ -155,7 +155,7 @@ function ExpertiseCard({ item, index, t }) {
   const hasImage = !!item.image
 
   return (
-    <div className="expertise-card group relative bg-white rounded-3xl overflow-hidden border border-gray-100/80 hover:shadow-2xl cursor-pointer">
+    <div className="expertise-card group relative bg-blue-50 rounded-3xl overflow-hidden border border-blue-100/80 hover:shadow-2xl hover:shadow-blue-500/10 cursor-pointer">
       <div className="relative aspect-[4/3] overflow-hidden">
         {hasImage ? (
           <>
