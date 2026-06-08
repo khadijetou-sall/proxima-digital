@@ -199,7 +199,7 @@ function ExpertiseCard({ item, index, t }) {
       </div>
 
       <div className="px-5 py-3.5">
-        <h3 className="text-sm font-semibold text-gray-900 leading-tight">{t(item.title)}</h3>
+        <h3 className="text-sm font-semibold text-blue-600 leading-tight">{t(item.title)}</h3>
       </div>
     </div>
   )

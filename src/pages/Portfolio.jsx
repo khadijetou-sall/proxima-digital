@@ -110,7 +110,7 @@ export default function Portfolio() {
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filtered.map((project) => (
-                  <div key={project.id || project._id} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:border-gray-200 transition-all duration-300">
+                  <div key={project.id || project._id} className="group bg-[#12367e]/[0.07] rounded-2xl overflow-hidden border border-[#12367e]/[0.15] hover:shadow-xl hover:shadow-[#12367e]/[0.12] hover:border-[#12367e]/[0.25] transition-all duration-300">
                     <div className="relative h-52 overflow-hidden bg-gray-100">
                       {project.image ? (
                         <img
@@ -130,7 +130,7 @@ export default function Portfolio() {
                       </div>
                     </div>
                     <div className="p-5">
-                      <h3 className="text-base font-semibold text-gray-900 mb-1.5">{project.title}</h3>
+                      <h3 className="text-base font-semibold text-blue-600 mb-1.5">{project.title}</h3>
                       <p className="text-sm text-gray-500 leading-relaxed line-clamp-2">{project.description}</p>
                       {project.tags && project.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mt-3">
