@@ -34,13 +34,36 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-3 sm:py-3">
+        <div className="sm:flex sm:items-center sm:justify-between py-3">
           <Link to="/" className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <img src="/logo.png" alt="Proxima Digital" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/30 transition-shadow" />
             <span className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${scrolled ? 'text-gray-900' : 'text-white'}`}>
               {t('brand')}
             </span>
           </Link>
+
+          <nav className="hidden sm:flex items-center gap-1.5">
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.to
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
+                    isActive
+                      ? scrolled
+                        ? 'bg-gray-100 text-gray-900'
+                        : 'bg-white/15 text-white'
+                      : scrolled
+                        ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  {t(link.label)}
+                </Link>
+              )
+            })}
+          </nav>
 
           <div className="flex items-center gap-0.5 sm:gap-2 shrink-0">
             <LanguageSelector />
@@ -94,15 +117,15 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="overflow-x-auto sm:overflow-visible -mx-3 sm:mx-0 px-3 sm:px-0 pb-4 sm:pb-3 hide-scrollbar">
-          <nav className="flex items-center gap-1 sm:gap-1.5 w-max mx-auto">
+        <div className="overflow-x-auto sm:hidden -mx-3 px-3 pb-4 hide-scrollbar">
+          <nav className="flex items-center gap-1 w-max mx-auto">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.to
               return (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`px-3 sm:px-4 py-2 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap ${
+                  className={`px-3 py-2 rounded-full text-xs font-medium transition-all whitespace-nowrap ${
                     isActive
                       ? scrolled
                         ? 'bg-gray-100 text-gray-900'
@@ -111,7 +134,7 @@ export default function Header() {
                         ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                         : 'text-white/80 hover:text-white hover:bg-white/10'
                   }`}
-                  >
+                >
                   {t(link.label)}
                 </Link>
               )
