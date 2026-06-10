@@ -30,8 +30,10 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isHome ? 'home-header' : ''
+      } ${
         scrolled
-          ? `${isHome ? 'sm:bg-white max-sm:bg-transparent' : 'bg-white'} shadow-sm border-b border-gray-200`
+          ? 'bg-white shadow-sm border-b border-gray-200'
           : 'bg-transparent'
       }`}
     >

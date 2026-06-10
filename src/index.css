@@ -215,6 +215,12 @@ body {
   scrollbar-width: none;
 }
 
+@media (width < 640px) {
+  header.home-header {
+    background-color: transparent !important;
+  }
+}
+
 .hero-mesh {
   position: absolute;
   inset: 0;
