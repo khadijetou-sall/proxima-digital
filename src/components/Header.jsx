@@ -33,7 +33,7 @@ export default function Header() {
         isHome ? 'home-header' : ''
       } ${
         scrolled
-          ? 'bg-white shadow-sm border-b border-gray-200'
+          ? `${isHome ? 'sm:bg-white' : 'bg-white'} shadow-sm border-b border-gray-200`
           : 'bg-transparent'
       }`}
     >
