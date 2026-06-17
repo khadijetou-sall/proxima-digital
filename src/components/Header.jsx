@@ -38,7 +38,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-between py-3 ${scrolled ? 'max-sm:bg-gray-100/80 max-sm:backdrop-blur-xl max-sm:-mx-3 max-sm:px-3' : ''}`}>
+        <div className="flex items-center justify-between py-3">
           <Link to="/" className="flex items-center gap-1.5 sm:gap-2 shrink-0">
             <img src="/logo.png" alt="Proxima Digital" className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl object-cover shadow-lg shadow-blue-500/20 group-hover:shadow-blue-500/30 transition-shadow" />
             <span className={`text-sm sm:text-base font-semibold tracking-tight transition-colors ${scrolled ? 'text-gray-900' : 'text-white'}`}>
