@@ -32,8 +32,8 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isHome ? 'home-header' : ''
       } ${
-        scrolled
-          ? `${isHome ? 'sm:bg-white' : 'bg-white'} shadow-sm border-b border-gray-200`
+         scrolled
+          ? `${isHome ? 'sm:bg-white' : 'bg-white/70 backdrop-blur-xl sm:bg-white sm:backdrop-blur-none'} shadow-sm border-b border-gray-200`
           : 'bg-transparent'
       }`}
     >
@@ -79,7 +79,7 @@ export default function Header() {
                     to="/admin"
                     className={`inline-flex items-center gap-1 px-2 sm:px-3 py-2 sm:py-2 rounded-full text-xs sm:text-xs lg:text-sm font-medium transition-all ${
                       scrolled
-                        ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-md'
+                        ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:shadow-md'
                         : 'bg-white/10 text-white hover:bg-white/20'
                     }`}
                   >
